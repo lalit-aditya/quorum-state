@@ -1,0 +1,197 @@
+{
+ "config": {
+  "backend": "mock",
+  "model": "claude-haiku-5-5",
+  "projects": 3,
+  "sessions": 10,
+  "items_per_session": 4,
+  "batched_extraction": true,
+  "seed": 2026
+ },
+ "done_projects": 3,
+ "rows": [
+  {
+   "project": 0,
+   "scheme": "transcript",
+   "truth": 1.0,
+   "p_approve": 0.961,
+   "correct": 1,
+   "agrees_with_transcript": 1,
+   "brier": 0.0015210000000000026,
+   "tokens_this_project": 3167
+  },
+  {
+   "project": 0,
+   "scheme": "summary",
+   "truth": 1.0,
+   "p_approve": 0.769,
+   "correct": 1,
+   "agrees_with_transcript": 1,
+   "brier": 0.05336099999999999,
+   "tokens_this_project": 4141
+  },
+  {
+   "project": 0,
+   "scheme": "retrieval",
+   "truth": 1.0,
+   "p_approve": 0.5,
+   "correct": 1,
+   "agrees_with_transcript": 1,
+   "brier": 0.25,
+   "tokens_this_project": 1300
+  },
+  {
+   "project": 0,
+   "scheme": "state",
+   "truth": 1.0,
+   "p_approve": 0.8814360002856189,
+   "correct": 1,
+   "agrees_with_transcript": 1,
+   "brier": 0.014057422028271772,
+   "tokens_this_project": 1897
+  },
+  {
+   "project": 0,
+   "scheme": "state+llm",
+   "truth": 1.0,
+   "p_approve": 0.599,
+   "correct": 1,
+   "agrees_with_transcript": 1,
+   "brier": 0.16080100000000003,
+   "tokens_this_project": 2687
+  },
+  {
+   "project": 1,
+   "scheme": "transcript",
+   "truth": 0.0,
+   "p_approve": 0.168,
+   "correct": 1,
+   "agrees_with_transcript": 1,
+   "brier": 0.028224000000000003,
+   "tokens_this_project": 3183
+  },
+  {
+   "project": 1,
+   "scheme": "summary",
+   "truth": 0.0,
+   "p_approve": 0.401,
+   "correct": 1,
+   "agrees_with_transcript": 1,
+   "brier": 0.16080100000000003,
+   "tokens_this_project": 4118
+  },
+  {
+   "project": 1,
+   "scheme": "retrieval",
+   "truth": 0.0,
+   "p_approve": 0.5,
+   "correct": 0,
+   "agrees_with_transcript": 0,
+   "brier": 0.25,
+   "tokens_this_project": 1301
+  },
+  {
+   "project": 1,
+   "scheme": "state",
+   "truth": 0.0,
+   "p_approve": 0.19583280449891405,
+   "correct": 1,
+   "agrees_with_transcript": 1,
+   "brier": 0.03835048731790989,
+   "tokens_this_project": 1898
+  },
+  {
+   "project": 1,
+   "scheme": "state+llm",
+   "truth": 0.0,
+   "p_approve": 0.401,
+   "correct": 1,
+   "agrees_with_transcript": 1,
+   "brier": 0.16080100000000003,
+   "tokens_this_project": 2688
+  },
+  {
+   "project": 2,
+   "scheme": "transcript",
+   "truth": 0.0,
+   "p_approve": 0.5,
+   "correct": 0,
+   "agrees_with_transcript": 1,
+   "brier": 0.25,
+   "tokens_this_project": 3219
+  },
+  {
+   "project": 2,
+   "scheme": "summary",
+   "truth": 0.0,
+   "p_approve": 0.027,
+   "correct": 1,
+   "agrees_with_transcript": 0,
+   "brier": 0.0007289999999999999,
+   "tokens_this_project": 4119
+  },
+  {
+   "project": 2,
+   "scheme": "retrieval",
+   "truth": 0.0,
+   "p_approve": 0.31,
+   "correct": 1,
+   "agrees_with_transcript": 0,
+   "brier": 0.0961,
+   "tokens_this_project": 1309
+  },
+  {
+   "project": 2,
+   "scheme": "state",
+   "truth": 0.0,
+   "p_approve": 0.5407762856819932,
+   "correct": 0,
+   "agrees_with_transcript": 1,
+   "brier": 0.29243899115601274,
+   "tokens_this_project": 1901
+  },
+  {
+   "project": 2,
+   "scheme": "state+llm",
+   "truth": 0.0,
+   "p_approve": 0.599,
+   "correct": 0,
+   "agrees_with_transcript": 1,
+   "brier": 0.358801,
+   "tokens_this_project": 2691
+  }
+ ],
+ "log": [],
+ "usage": {
+  "transcript": {
+   "calls": 30,
+   "inp": 9439,
+   "out": 130
+  },
+  "summary": {
+   "calls": 60,
+   "inp": 10391,
+   "out": 1987
+  },
+  "retrieval": {
+   "calls": 30,
+   "inp": 3784,
+   "out": 126
+  },
+  "state": {
+   "calls": 30,
+   "inp": 3970,
+   "out": 1726
+  },
+  "state+llm": {
+   "calls": 60,
+   "inp": 6190,
+   "out": 1876
+  }
+ },
+ "backend": {
+  "calls_used": 0,
+  "truncated": 0,
+  "empty": 0
+ }
+}

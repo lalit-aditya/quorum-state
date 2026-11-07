@@ -1,0 +1,381 @@
+{
+ "robustness": [
+  {
+   "drift_fraction": 0.1,
+   "median_abs_q": 0.008041577476668615,
+   "p90_abs_q": 0.02192463877920795,
+   "n_models": 600
+  },
+  {
+   "drift_fraction": 0.5,
+   "median_abs_q": 0.041496597262024704,
+   "p90_abs_q": 0.1059600935081139,
+   "n_models": 600
+  },
+  {
+   "drift_fraction": 0.94,
+   "median_abs_q": 0.07745592900480655,
+   "p90_abs_q": 0.21804719167190936,
+   "n_models": 600
+  }
+ ],
+ "model": {
+  "P_A": 0.3528673948570512,
+  "P_B": 0.3771701349600912,
+  "half_life_hours": 6.0
+ },
+ "q": [
+  {
+   "condition": "delay only",
+   "delay": "0 s",
+   "hours": 0.0,
+   "q": 0.0,
+   "order_effect_A": 0.3154106050091415
+  },
+  {
+   "condition": "delay only",
+   "delay": "30 s",
+   "hours": 0.008333333333333333,
+   "q": 2.1253765414286363e-06,
+   "order_effect_A": 0.31476756040719334
+  },
+  {
+   "condition": "delay only",
+   "delay": "5 min",
+   "hours": 0.08333333333333333,
+   "q": 2.116197055035407e-05,
+   "order_effect_A": 0.3090079320412591
+  },
+  {
+   "condition": "delay only",
+   "delay": "1 h",
+   "hours": 1.0,
+   "q": 0.00024098044570819432,
+   "order_effect_A": 0.2425006185851295
+  },
+  {
+   "condition": "delay only",
+   "delay": "24 h",
+   "hours": 24.0,
+   "q": 0.00207072881271958,
+   "order_effect_A": -0.31110001986541436
+  },
+  {
+   "condition": "delay + content",
+   "delay": "0 s",
+   "hours": 0.0,
+   "q": 0.1420177361090934,
+   "order_effect_A": 0.2855686173991703
+  },
+  {
+   "condition": "delay + content",
+   "delay": "30 s",
+   "hours": 0.008333333333333333,
+   "q": 0.14188320617361783,
+   "order_effect_A": 0.28495428798618205
+  },
+  {
+   "condition": "delay + content",
+   "delay": "5 min",
+   "hours": 0.08333333333333333,
+   "q": 0.14067824709288723,
+   "order_effect_A": 0.279451856113876
+  },
+  {
+   "condition": "delay + content",
+   "delay": "1 h",
+   "hours": 1.0,
+   "q": 0.12676439949849228,
+   "order_effect_A": 0.21591443007664646
+  },
+  {
+   "condition": "delay + content",
+   "delay": "24 h",
+   "hours": 24.0,
+   "q": 0.010946837319537883,
+   "order_effect_A": -0.3129651440910375
+  }
+ ],
+ "power": [
+  {
+   "condition": "delay only",
+   "delay": "0 s",
+   "N_per_order": 100,
+   "true_q": 0.0,
+   "rejection_rate": 0.053
+  },
+  {
+   "condition": "delay only",
+   "delay": "0 s",
+   "N_per_order": 250,
+   "true_q": 0.0,
+   "rejection_rate": 0.037
+  },
+  {
+   "condition": "delay only",
+   "delay": "0 s",
+   "N_per_order": 500,
+   "true_q": 0.0,
+   "rejection_rate": 0.057
+  },
+  {
+   "condition": "delay only",
+   "delay": "0 s",
+   "N_per_order": 1000,
+   "true_q": 0.0,
+   "rejection_rate": 0.044
+  },
+  {
+   "condition": "delay only",
+   "delay": "30 s",
+   "N_per_order": 100,
+   "true_q": 2.1253765414286363e-06,
+   "rejection_rate": 0.05
+  },
+  {
+   "condition": "delay only",
+   "delay": "30 s",
+   "N_per_order": 250,
+   "true_q": 2.1253765414286363e-06,
+   "rejection_rate": 0.057
+  },
+  {
+   "condition": "delay only",
+   "delay": "30 s",
+   "N_per_order": 500,
+   "true_q": 2.1253765414286363e-06,
+   "rejection_rate": 0.053
+  },
+  {
+   "condition": "delay only",
+   "delay": "30 s",
+   "N_per_order": 1000,
+   "true_q": 2.1253765414286363e-06,
+   "rejection_rate": 0.079
+  },
+  {
+   "condition": "delay only",
+   "delay": "5 min",
+   "N_per_order": 100,
+   "true_q": 2.116197055035407e-05,
+   "rejection_rate": 0.039
+  },
+  {
+   "condition": "delay only",
+   "delay": "5 min",
+   "N_per_order": 250,
+   "true_q": 2.116197055035407e-05,
+   "rejection_rate": 0.066
+  },
+  {
+   "condition": "delay only",
+   "delay": "5 min",
+   "N_per_order": 500,
+   "true_q": 2.116197055035407e-05,
+   "rejection_rate": 0.049
+  },
+  {
+   "condition": "delay only",
+   "delay": "5 min",
+   "N_per_order": 1000,
+   "true_q": 2.116197055035407e-05,
+   "rejection_rate": 0.046
+  },
+  {
+   "condition": "delay only",
+   "delay": "1 h",
+   "N_per_order": 100,
+   "true_q": 0.00024098044570819432,
+   "rejection_rate": 0.048
+  },
+  {
+   "condition": "delay only",
+   "delay": "1 h",
+   "N_per_order": 250,
+   "true_q": 0.00024098044570819432,
+   "rejection_rate": 0.043
+  },
+  {
+   "condition": "delay only",
+   "delay": "1 h",
+   "N_per_order": 500,
+   "true_q": 0.00024098044570819432,
+   "rejection_rate": 0.053
+  },
+  {
+   "condition": "delay only",
+   "delay": "1 h",
+   "N_per_order": 1000,
+   "true_q": 0.00024098044570819432,
+   "rejection_rate": 0.043
+  },
+  {
+   "condition": "delay only",
+   "delay": "24 h",
+   "N_per_order": 100,
+   "true_q": 0.00207072881271958,
+   "rejection_rate": 0.057
+  },
+  {
+   "condition": "delay only",
+   "delay": "24 h",
+   "N_per_order": 250,
+   "true_q": 0.00207072881271958,
+   "rejection_rate": 0.055
+  },
+  {
+   "condition": "delay only",
+   "delay": "24 h",
+   "N_per_order": 500,
+   "true_q": 0.00207072881271958,
+   "rejection_rate": 0.046
+  },
+  {
+   "condition": "delay only",
+   "delay": "24 h",
+   "N_per_order": 1000,
+   "true_q": 0.00207072881271958,
+   "rejection_rate": 0.05
+  },
+  {
+   "condition": "delay + content",
+   "delay": "0 s",
+   "N_per_order": 100,
+   "true_q": 0.1420177361090934,
+   "rejection_rate": 0.645
+  },
+  {
+   "condition": "delay + content",
+   "delay": "0 s",
+   "N_per_order": 250,
+   "true_q": 0.1420177361090934,
+   "rejection_rate": 0.972
+  },
+  {
+   "condition": "delay + content",
+   "delay": "0 s",
+   "N_per_order": 500,
+   "true_q": 0.1420177361090934,
+   "rejection_rate": 1.0
+  },
+  {
+   "condition": "delay + content",
+   "delay": "0 s",
+   "N_per_order": 1000,
+   "true_q": 0.1420177361090934,
+   "rejection_rate": 1.0
+  },
+  {
+   "condition": "delay + content",
+   "delay": "30 s",
+   "N_per_order": 100,
+   "true_q": 0.14188320617361783,
+   "rejection_rate": 0.694
+  },
+  {
+   "condition": "delay + content",
+   "delay": "30 s",
+   "N_per_order": 250,
+   "true_q": 0.14188320617361783,
+   "rejection_rate": 0.978
+  },
+  {
+   "condition": "delay + content",
+   "delay": "30 s",
+   "N_per_order": 500,
+   "true_q": 0.14188320617361783,
+   "rejection_rate": 0.999
+  },
+  {
+   "condition": "delay + content",
+   "delay": "30 s",
+   "N_per_order": 1000,
+   "true_q": 0.14188320617361783,
+   "rejection_rate": 1.0
+  },
+  {
+   "condition": "delay + content",
+   "delay": "5 min",
+   "N_per_order": 100,
+   "true_q": 0.14067824709288723,
+   "rejection_rate": 0.676
+  },
+  {
+   "condition": "delay + content",
+   "delay": "5 min",
+   "N_per_order": 250,
+   "true_q": 0.14067824709288723,
+   "rejection_rate": 0.957
+  },
+  {
+   "condition": "delay + content",
+   "delay": "5 min",
+   "N_per_order": 500,
+   "true_q": 0.14067824709288723,
+   "rejection_rate": 1.0
+  },
+  {
+   "condition": "delay + content",
+   "delay": "5 min",
+   "N_per_order": 1000,
+   "true_q": 0.14067824709288723,
+   "rejection_rate": 1.0
+  },
+  {
+   "condition": "delay + content",
+   "delay": "1 h",
+   "N_per_order": 100,
+   "true_q": 0.12676439949849228,
+   "rejection_rate": 0.507
+  },
+  {
+   "condition": "delay + content",
+   "delay": "1 h",
+   "N_per_order": 250,
+   "true_q": 0.12676439949849228,
+   "rejection_rate": 0.905
+  },
+  {
+   "condition": "delay + content",
+   "delay": "1 h",
+   "N_per_order": 500,
+   "true_q": 0.12676439949849228,
+   "rejection_rate": 0.999
+  },
+  {
+   "condition": "delay + content",
+   "delay": "1 h",
+   "N_per_order": 1000,
+   "true_q": 0.12676439949849228,
+   "rejection_rate": 1.0
+  },
+  {
+   "condition": "delay + content",
+   "delay": "24 h",
+   "N_per_order": 100,
+   "true_q": 0.010946837319537883,
+   "rejection_rate": 0.063
+  },
+  {
+   "condition": "delay + content",
+   "delay": "24 h",
+   "N_per_order": 250,
+   "true_q": 0.010946837319537883,
+   "rejection_rate": 0.048
+  },
+  {
+   "condition": "delay + content",
+   "delay": "24 h",
+   "N_per_order": 500,
+   "true_q": 0.010946837319537883,
+   "rejection_rate": 0.053
+  },
+  {
+   "condition": "delay + content",
+   "delay": "24 h",
+   "N_per_order": 1000,
+   "true_q": 0.010946837319537883,
+   "rejection_rate": 0.069
+  }
+ ]
+}

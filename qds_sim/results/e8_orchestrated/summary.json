@@ -1,0 +1,130 @@
+{
+ "meta": {
+  "backend": "mock",
+  "small_model": "mock",
+  "ideal_model": "mock",
+  "token_counts": "estimated",
+  "prices_usd_per_mtok": {
+   "small": [
+    1.0,
+    5.0
+   ],
+   "ideal": [
+    3.0,
+    15.0
+   ]
+  },
+  "prices_are_placeholders": true,
+  "projects": 1,
+  "sessions": 4,
+  "items_per_session": 4,
+  "decide_every": 1,
+  "half_life": 1000000000.0,
+  "state_scale": 1.0,
+  "review_every": 0,
+  "feedback_gain": 0.0,
+  "parse_errors": 0,
+  "truncated_replies": 0,
+  "empty_replies": 0,
+  "valid": true,
+  "total_calls": 20
+ },
+ "schemes": {
+  "transcript-ideal": {
+   "calls": 4,
+   "input_tokens": 694,
+   "output_tokens": 16,
+   "total_tokens": 710,
+   "tokens_per_project": 710.0,
+   "cost_usd": 0.0023220000000000003,
+   "cost_per_project": 0.0023220000000000003,
+   "accuracy": 1.0,
+   "accuracy_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "brier": 0.09610000000000003,
+   "agreement_with_baseline": 1.0,
+   "tokens_vs_baseline": 1.0,
+   "cost_vs_baseline": 1.0,
+   "bill_if_baseline_is_100": 100.0
+  },
+  "transcript-small": {
+   "calls": 4,
+   "input_tokens": 694,
+   "output_tokens": 16,
+   "total_tokens": 710,
+   "tokens_per_project": 710.0,
+   "cost_usd": 0.0007740000000000001,
+   "cost_per_project": 0.0007740000000000001,
+   "accuracy": 1.0,
+   "accuracy_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "brier": 0.09610000000000003,
+   "agreement_with_baseline": 1.0,
+   "tokens_vs_baseline": 1.0,
+   "cost_vs_baseline": 0.3333333333333333,
+   "bill_if_baseline_is_100": 33.33333333333333
+  },
+  "retrieval-small": {
+   "calls": 4,
+   "input_tokens": 495,
+   "output_tokens": 16,
+   "total_tokens": 511,
+   "tokens_per_project": 511.0,
+   "cost_usd": 0.000575,
+   "cost_per_project": 0.000575,
+   "accuracy": 1.0,
+   "accuracy_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "brier": 0.09610000000000003,
+   "agreement_with_baseline": 1.0,
+   "tokens_vs_baseline": 0.719718309859155,
+   "cost_vs_baseline": 0.24763135228251504,
+   "bill_if_baseline_is_100": 24.763135228251503
+  },
+  "state-code": {
+   "calls": 4,
+   "input_tokens": 528,
+   "output_tokens": 233,
+   "total_tokens": 761,
+   "tokens_per_project": 761.0,
+   "cost_usd": 0.001693,
+   "cost_per_project": 0.001693,
+   "accuracy": 1.0,
+   "accuracy_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "brier": 0.009671913700061829,
+   "agreement_with_baseline": 1.0,
+   "tokens_vs_baseline": 1.0718309859154929,
+   "cost_vs_baseline": 0.7291128337639965,
+   "bill_if_baseline_is_100": 72.91128337639965
+  },
+  "orchestrated": {
+   "calls": 8,
+   "input_tokens": 824,
+   "output_tokens": 253,
+   "total_tokens": 1077,
+   "tokens_per_project": 1077.0,
+   "cost_usd": 0.002881,
+   "cost_per_project": 0.002881,
+   "accuracy": 1.0,
+   "accuracy_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "brier": 0.16080100000000003,
+   "agreement_with_baseline": 1.0,
+   "tokens_vs_baseline": 1.5169014084507042,
+   "cost_vs_baseline": 1.2407407407407405,
+   "bill_if_baseline_is_100": 124.07407407407405
+  }
+ },
+ "parse_errors": []
+}

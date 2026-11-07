@@ -1,0 +1,75 @@
+{
+ "meta": {
+  "backend": "mock",
+  "model": "mock",
+  "token_counts": "estimated",
+  "projects": 3,
+  "sessions": 10,
+  "items_per_session": 4,
+  "batched_extraction": true,
+  "parse_errors": 0,
+  "truncated_replies": 0,
+  "empty_replies": 0,
+  "valid": true,
+  "temperature_used": null,
+  "thinking_disabled": null
+ },
+ "schemes": {
+  "transcript": {
+   "calls": 30,
+   "input_tokens": 9439,
+   "output_tokens": 130,
+   "total_tokens": 9569,
+   "tokens_per_project": 3189.6666666666665,
+   "accuracy": 0.6666666666666666,
+   "brier": 0.09324833333333334,
+   "agreement_with_transcript": 1.0,
+   "tokens_vs_transcript": 1.0
+  },
+  "summary": {
+   "calls": 60,
+   "input_tokens": 10391,
+   "output_tokens": 1987,
+   "total_tokens": 12378,
+   "tokens_per_project": 4126.0,
+   "accuracy": 1.0,
+   "brier": 0.07163033333333334,
+   "agreement_with_transcript": 0.6666666666666666,
+   "tokens_vs_transcript": 1.2935520953077646
+  },
+  "retrieval": {
+   "calls": 30,
+   "input_tokens": 3784,
+   "output_tokens": 126,
+   "total_tokens": 3910,
+   "tokens_per_project": 1303.3333333333333,
+   "accuracy": 0.6666666666666666,
+   "brier": 0.1987,
+   "agreement_with_transcript": 0.3333333333333333,
+   "tokens_vs_transcript": 0.4086111401400355
+  },
+  "state": {
+   "calls": 30,
+   "input_tokens": 3970,
+   "output_tokens": 1726,
+   "total_tokens": 5696,
+   "tokens_per_project": 1898.6666666666667,
+   "accuracy": 0.6666666666666666,
+   "brier": 0.1149489668340648,
+   "agreement_with_transcript": 1.0,
+   "tokens_vs_transcript": 0.5952555125927474
+  },
+  "state+llm": {
+   "calls": 60,
+   "input_tokens": 6190,
+   "output_tokens": 1876,
+   "total_tokens": 8066,
+   "tokens_per_project": 2688.6666666666665,
+   "accuracy": 0.6666666666666666,
+   "brier": 0.22680100000000003,
+   "agreement_with_transcript": 1.0,
+   "tokens_vs_transcript": 0.842930295746682
+  }
+ },
+ "parse_errors": []
+}

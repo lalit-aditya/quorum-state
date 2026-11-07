@@ -1,0 +1,114 @@
+{
+ "nu=0.0,K=4": {
+  "none": {
+   "retention": 0.456,
+   "order_sens": 0.137
+  },
+  "recommit": {
+   "retention": 0.574,
+   "order_sens": 0.17
+  },
+  "reminder": {
+   "retention": 0.754,
+   "order_sens": 0.095
+  }
+ },
+ "nu=0.0,K=16": {
+  "none": {
+   "retention": 0.456,
+   "order_sens": 0.137
+  },
+  "recommit": {
+   "retention": 0.646,
+   "order_sens": 0.184
+  },
+  "reminder": {
+   "retention": 0.735,
+   "order_sens": 0.089
+  }
+ },
+ "nu=0.5,K=4": {
+  "none": {
+   "retention": 0.455,
+   "order_sens": 0.138
+  },
+  "recommit": {
+   "retention": 0.514,
+   "order_sens": 0.171
+  },
+  "reminder": {
+   "retention": 0.63,
+   "order_sens": 0.109
+  }
+ },
+ "nu=0.5,K=16": {
+  "none": {
+   "retention": 0.455,
+   "order_sens": 0.138
+  },
+  "recommit": {
+   "retention": 0.598,
+   "order_sens": 0.184
+  },
+  "reminder": {
+   "retention": 0.727,
+   "order_sens": 0.09
+  }
+ },
+ "nu=2.0,K=4": {
+  "none": {
+   "retention": 0.542,
+   "order_sens": 0.12
+  },
+  "recommit": {
+   "retention": 0.539,
+   "order_sens": 0.174
+  },
+  "reminder": {
+   "retention": 0.592,
+   "order_sens": 0.113
+  }
+ },
+ "nu=2.0,K=16": {
+  "none": {
+   "retention": 0.542,
+   "order_sens": 0.12
+  },
+  "recommit": {
+   "retention": 0.605,
+   "order_sens": 0.185
+  },
+  "reminder": {
+   "retention": 0.7,
+   "order_sens": 0.095
+  }
+ },
+ "nu=8.0,K=4": {
+  "none": {
+   "retention": 0.674,
+   "order_sens": 0.1
+  },
+  "recommit": {
+   "retention": 0.663,
+   "order_sens": 0.172
+  },
+  "reminder": {
+   "retention": 0.675,
+   "order_sens": 0.1
+  }
+ },
+ "nu=8.0,K=16": {
+  "none": {
+   "retention": 0.674,
+   "order_sens": 0.1
+  },
+  "recommit": {
+   "retention": 0.687,
+   "order_sens": 0.184
+  },
+  "reminder": {
+   "retention": 0.693,
+   "order_sens": 0.092
+  }
+ }
+}

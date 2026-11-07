@@ -1,0 +1,232 @@
+\begin{thebibliography}{35}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Haris et~al.(2026)Haris, Zhang, and Yoshida]{haris2026noise}
+Themistoklis Haris, Zihan Zhang, and Yuichi Yoshida.
+\newblock Noise stability of transformer models.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2026.
+\newblock arXiv:2602.08287.
+
+\bibitem[Vaswani et~al.(2017)Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez,
+  Kaiser, and Polosukhin]{vaswani2017}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N. Gomez, {\L}ukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~30, 2017.
+
+\bibitem[Bougie et~al.(2026)Bougie, Ye, and Watanabe]{bougie2026cityreal}
+Nicolas Bougie, Xiaotong Ye, and Narimasa Watanabe.
+\newblock {CityReal}: Human-aligned urban behavior and city dynamics simulation
+  with large-scale {LLM} agents.
+\newblock arXiv:2608.16897, 2026.
+
+\bibitem[Li et~al.(2025)Li, Ji, and Liu]{li2025narrative}
+Qiumeng Li, Chunhou Ji, and Xinyue Liu.
+\newblock From narrative to action: A hierarchical {LLM}-agent framework for
+  human mobility generation.
+\newblock arXiv:2510.24802, 2025.
+
+\bibitem[Moore(2002)]{moore2002}
+David~W. Moore.
+\newblock Measuring new types of question-order effects.
+\newblock \emph{Public Opinion Quarterly}, 66:\penalty0 80--91, 2002.
+
+\bibitem[Wang and Busemeyer(2013)]{wang2013}
+Zheng Wang and Jerome~R. Busemeyer.
+\newblock A quantum question order model supported by empirical tests of an a
+  priori and precise prediction.
+\newblock \emph{Topics in Cognitive Science}, 5\penalty0 (4):\penalty0
+  689--710, 2013.
+\newblock \doi{10.1111/tops.12040}.
+
+\bibitem[Wang et~al.(2014)Wang, Solloway, Shiffrin, and Busemeyer]{wang2014}
+Zheng Wang, Tyler Solloway, Richard~M. Shiffrin, and Jerome~R. Busemeyer.
+\newblock Context effects produced by question orders reveal quantum nature of
+  human judgments.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 111\penalty0
+  (26):\penalty0 9431--9436, 2014.
+
+\bibitem[Yearsley and Pothos(2016)]{yearsley2016}
+James~M. Yearsley and Emmanuel~M. Pothos.
+\newblock Zeno's paradox in decision-making.
+\newblock \emph{Proceedings of the Royal Society B}, 283\penalty0
+  (1828):\penalty0 20160291, 2016.
+\newblock \doi{10.1098/rspb.2016.0291}.
+
+\bibitem[Busemeyer and Bruza(2012)]{busemeyer2012book}
+Jerome~R. Busemeyer and Peter~D. Bruza.
+\newblock \emph{Quantum Models of Cognition and Decision}.
+\newblock Cambridge University Press, 2012.
+
+\bibitem[Pothos and Busemeyer(2013)]{pothos2013}
+Emmanuel~M. Pothos and Jerome~R. Busemeyer.
+\newblock Can quantum probability provide a new direction for cognitive
+  modeling?
+\newblock \emph{Behavioral and Brain Sciences}, 36:\penalty0 255--274, 2013.
+
+\bibitem[Kofman and Kurizki(2000)]{kofman2000}
+Abraham~G. Kofman and Gershon Kurizki.
+\newblock Acceleration of quantum decay processes by frequent observations.
+\newblock \emph{Nature}, 405:\penalty0 546--550, 2000.
+
+\bibitem[Kofman and Kurizki(2001)]{kofman2001}
+Abraham~G. Kofman and Gershon Kurizki.
+\newblock Universal dynamical control of quantum mechanical decay: Modulation
+  of the coupling to the continuum.
+\newblock \emph{Physical Review Letters}, 87:\penalty0 270405, 2001.
+
+\bibitem[Kofman and Kurizki(2005)]{kofman2005}
+Abraham~G. Kofman and Gershon Kurizki.
+\newblock Theory of dynamical control of qubit decay and decoherence.
+\newblock \emph{IEEE Transactions on Nanotechnology}, 4\penalty0 (1):\penalty0
+  116--123, 2005.
+\newblock \doi{10.1109/TNANO.2004.840169}.
+
+\bibitem[Yamamoto et~al.(2008{\natexlab{a}})Yamamoto, Nurdin, James, and
+  Petersen]{yamamoto2008cdc}
+Naoki Yamamoto, Hendra~I. Nurdin, Matthew~R. James, and Ian~R. Petersen.
+\newblock Feedback control of entanglement in a linear quantum network: A case
+  study.
+\newblock In \emph{Proceedings of the 47th IEEE Conference on Decision and
+  Control}, pages 4528--4533, Canc{\'u}n, Mexico, 2008{\natexlab{a}}.
+
+\bibitem[Yamamoto et~al.(2008{\natexlab{b}})Yamamoto, Nurdin, James, and
+  Petersen]{yamamoto2008pra}
+Naoki Yamamoto, Hendra~I. Nurdin, Matthew~R. James, and Ian~R. Petersen.
+\newblock Avoiding entanglement sudden death via measurement feedback control
+  in a quantum network.
+\newblock \emph{Physical Review A}, 78:\penalty0 042339, 2008{\natexlab{b}}.
+
+\bibitem[L{\"u}ders(1951)]{luders1951}
+Gerhart L{\"u}ders.
+\newblock {\"U}ber die {Z}ustands{\"a}nderung durch den {M}e{\ss}proze{\ss}.
+\newblock \emph{Annalen der Physik}, 8:\penalty0 322--328, 1951.
+
+\bibitem[Busemeyer et~al.(2006)Busemeyer, Wang, and Townsend]{busemeyer2006}
+Jerome~R. Busemeyer, Zheng Wang, and James~T. Townsend.
+\newblock Quantum dynamics of human decision-making.
+\newblock \emph{Journal of Mathematical Psychology}, 50:\penalty0 220--241,
+  2006.
+
+\bibitem[Kvam et~al.(2015)Kvam, Pleskac, Yu, and Busemeyer]{kvam2015}
+Peter~D. Kvam, Timothy~J. Pleskac, Shuli Yu, and Jerome~R. Busemeyer.
+\newblock Interference effects of choice on confidence: Quantum characteristics
+  of evidence accumulation.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 112\penalty0
+  (34):\penalty0 10645--10650, 2015.
+
+\bibitem[Busemeyer et~al.(2019)Busemeyer, Kvam, and Pleskac]{busemeyer2019}
+Jerome~R. Busemeyer, Peter~D. Kvam, and Timothy~J. Pleskac.
+\newblock Markov versus quantum dynamic models of belief change during evidence
+  monitoring.
+\newblock \emph{Scientific Reports}, 9:\penalty0 18025, 2019.
+
+\bibitem[Dzhafarov et~al.(2016)Dzhafarov, Zhang, and Kujala]{dzhafarov2016}
+Ehtibar~N. Dzhafarov, Ru~Zhang, and Janne Kujala.
+\newblock Is there contextuality in behavioural and social systems?
+\newblock \emph{Philosophical Transactions of the Royal Society A},
+  374:\penalty0 20150099, 2016.
+
+\bibitem[Misra and Sudarshan(1977)]{misra1977}
+B.~Misra and E.~C.~G. Sudarshan.
+\newblock The {Z}eno's paradox in quantum theory.
+\newblock \emph{Journal of Mathematical Physics}, 18:\penalty0 756--763, 1977.
+
+\bibitem[Fischer et~al.(2001)Fischer, Guti{\'e}rrez-Medina, and
+  Raizen]{fischer2001}
+M.~C. Fischer, B.~Guti{\'e}rrez-Medina, and M.~G. Raizen.
+\newblock Observation of the quantum {Z}eno and anti-{Z}eno effects in an
+  unstable system.
+\newblock \emph{Physical Review Letters}, 87:\penalty0 040402, 2001.
+
+\bibitem[Asano et~al.(2011)Asano, Ohya, Tanaka, Khrennikov, and
+  Basieva]{asano2011}
+Masanari Asano, Masanori Ohya, Yoshiharu Tanaka, Andrei Khrennikov, and Irina
+  Basieva.
+\newblock On application of {G}orini--{K}ossakowski--{S}udarshan--{L}indblad
+  equation in cognitive psychology.
+\newblock \emph{Open Systems \& Information Dynamics}, 18\penalty0
+  (1):\penalty0 55--69, 2011.
+
+\bibitem[Mart{\'i}nez-Mart{\'i}nez and S{\'a}nchez-Burillo(2016)]{martinez2016}
+Ismael Mart{\'i}nez-Mart{\'i}nez and Eduardo S{\'a}nchez-Burillo.
+\newblock Quantum stochastic walks on networks for decision-making.
+\newblock \emph{Scientific Reports}, 6:\penalty0 23812, 2016.
+
+\bibitem[Busemeyer et~al.(2020)Busemeyer, Zhang, Balakrishnan, and
+  Wang]{busemeyer2020entropy}
+Jerome~R. Busemeyer, Qizi Zhang, S.~N. Balakrishnan, and Zheng Wang.
+\newblock Application of quantum--{M}arkov open system models to human
+  cognition and decision.
+\newblock \emph{Entropy}, 22\penalty0 (9):\penalty0 990, 2020.
+
+\bibitem[Asano and Khrennikov(2026)]{asano2026review}
+Masanari Asano and Andrei Khrennikov.
+\newblock Quantum-like models of cognition and decision making: Open-systems
+  and {G}orini--{K}ossakowski--{S}udarshan--{L}indblad dynamics.
+\newblock arXiv:2604.18643, 2026.
+
+\bibitem[Snow et~al.(2024)Snow, Jain, and Krishnamurthy]{snow2024}
+Luke Snow, Shashwat Jain, and Vikram Krishnamurthy.
+\newblock Lyapunov based stochastic stability of a quantum decision system for
+  human--machine interaction.
+\newblock \emph{Automatica}, 164:\penalty0 111628, 2024.
+
+\bibitem[Ye et~al.(2026)Ye, Sun, Ren, Yu, Yi, and Yang]{ye2026agonalpha}
+Weicheng Ye, Youran Sun, Xingyu Ren, Shunyao Yu, Chugang Yi, and Haizhao Yang.
+\newblock {AgonAlpha}: Autonomous alpha discovery via prompt economy and
+  scalable agentic search.
+\newblock arXiv:2608.11250, 2026.
+
+\bibitem[Kang(2026)]{kang2026}
+Kang.
+\newblock Auditing question-order effects in large language models with the
+  {QQ} equality: Mechanism characterization and a saturation caveat.
+\newblock arXiv:2607.17219, 2026.
+\newblock Author list to be verified.
+
+\bibitem[Kumar et~al.(2026)]{kumar2026}
+Kumar et~al.
+\newblock Failure of contextual invariance in large language models.
+\newblock arXiv:2603.23485, 2026.
+\newblock Author list to be verified.
+
+\bibitem[Zou et~al.(2026)]{zou2026demem}
+Zou et~al.
+\newblock {DeMem}: decision-centric memory for language agents.
+\newblock arXiv:2605.10870, 2026.
+\newblock Title and author list to be verified.
+
+\bibitem[Drissi et~al.(2025)Drissi, Keeble, Rozal{\'e}n~Sarmiento, and
+  Rios]{drissi2025}
+M.~Drissi, J.~W.~T. Keeble, J.~Rozal{\'e}n~Sarmiento, and A.~Rios.
+\newblock Second-order optimisation strategies for neural network quantum
+  states.
+\newblock \emph{Philosophical Transactions of the Royal Society A}, 2025.
+\newblock Accepted; arXiv:2401.17550.
+
+\bibitem[Gneiting and Raftery(2007)]{gneiting2007}
+Tilmann Gneiting and Adrian~E. Raftery.
+\newblock Strictly proper scoring rules, prediction, and estimation.
+\newblock \emph{Journal of the American Statistical Association}, 102:\penalty0
+  359--378, 2007.
+
+\bibitem[Saaty(1980)]{saaty1980}
+Thomas~L. Saaty.
+\newblock \emph{The Analytic Hierarchy Process}.
+\newblock McGraw-Hill, 1980.
+
+\bibitem[Li et~al.(2020)Li, Huo, Liu, Li, Chen, and Ou]{li2020temporal}
+Xiaoying Li, Nan Huo, Yuhong Liu, Jiamin Li, Xin Chen, and Z.~Y. Ou.
+\newblock Direct temporal mode determination for the characterization of
+  temporally multiplexed high dimensional quantum entanglement.
+\newblock In \emph{CLEO Pacific Rim}, page P5\_5, 2020.
+\newblock \doi{10.1364/CLEOPR.2020.P5_5}.
+
+\end{thebibliography}

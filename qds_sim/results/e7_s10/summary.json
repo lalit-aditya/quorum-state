@@ -1,0 +1,75 @@
+{
+ "meta": {
+  "backend": "anthropic",
+  "model": "claude-haiku-5-5",
+  "token_counts": "reported by API",
+  "projects": 10,
+  "sessions": 10,
+  "items_per_session": 4,
+  "batched_extraction": true,
+  "parse_errors": 0,
+  "truncated_replies": 0,
+  "empty_replies": 0,
+  "valid": true,
+  "temperature_used": false,
+  "thinking_disabled": true
+ },
+ "schemes": {
+  "transcript": {
+   "calls": 100,
+   "input_tokens": 47327,
+   "output_tokens": 1400,
+   "total_tokens": 48727,
+   "tokens_per_project": 4872.7,
+   "accuracy": 0.8,
+   "brier": 0.21803,
+   "agreement_with_transcript": 1.0,
+   "tokens_vs_transcript": 1.0
+  },
+  "summary": {
+   "calls": 200,
+   "input_tokens": 60434,
+   "output_tokens": 16210,
+   "total_tokens": 76644,
+   "tokens_per_project": 7664.4,
+   "accuracy": 0.5,
+   "brier": 0.28217,
+   "agreement_with_transcript": 0.7,
+   "tokens_vs_transcript": 1.5729267141420569
+  },
+  "retrieval": {
+   "calls": 100,
+   "input_tokens": 18980,
+   "output_tokens": 1400,
+   "total_tokens": 20380,
+   "tokens_per_project": 2038.0,
+   "accuracy": 0.4,
+   "brier": 0.33222999999999997,
+   "agreement_with_transcript": 0.6,
+   "tokens_vs_transcript": 0.41824860960042687
+  },
+  "state": {
+   "calls": 100,
+   "input_tokens": 19921,
+   "output_tokens": 10499,
+   "total_tokens": 30420,
+   "tokens_per_project": 3042.0,
+   "accuracy": 0.6,
+   "brier": 0.3533849910028505,
+   "agreement_with_transcript": 0.6,
+   "tokens_vs_transcript": 0.6242945389619718
+  },
+  "state+llm": {
+   "calls": 200,
+   "input_tokens": 32121,
+   "output_tokens": 12034,
+   "total_tokens": 44155,
+   "tokens_per_project": 4415.5,
+   "accuracy": 0.6,
+   "brier": 0.28908999999999996,
+   "agreement_with_transcript": 0.6,
+   "tokens_vs_transcript": 0.9061711166293841
+  }
+ },
+ "parse_errors": []
+}

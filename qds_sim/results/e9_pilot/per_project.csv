@@ -1,0 +1,16 @@
+project,scheme,tokens_this_project,cost_this_project,truth_macro,ans_macro,ok_macro,truth_meso,ans_meso,ok_meso,truth_micro,ans_micro,ok_micro,ok_all
+0,flat-ideal,3983,0.032373,approve,approve,1,fast-track,phased,0,commit,defer,0,0
+0,flat-small,3590,0.008846,approve,reject,0,fast-track,none,0,commit,defer,0,0
+0,hier-code,1518,0.003618,approve,reject,0,fast-track,none,0,commit,defer,0,0
+0,hier-ideal,3665,0.017883,approve,reject,0,fast-track,none,0,commit,defer,0,0
+0,hier-gated,2819,0.012369,approve,reject,0,fast-track,none,0,commit,defer,0,0
+1,flat-ideal,3899,0.03108899999999999,approve,approve,1,fast-track,fast-track,1,commit,commit,1,1
+1,flat-small,3413,0.007952999999999998,approve,approve,1,fast-track,phased,0,commit,commit,1,0
+1,hier-code,1526,0.003622,approve,approve,1,fast-track,fast-track,1,commit,commit,1,1
+1,hier-ideal,3609,0.016926999999999994,approve,approve,1,fast-track,fast-track,1,commit,commit,1,1
+1,hier-gated,1526,0.0036219999999999985,approve,approve,1,fast-track,fast-track,1,commit,commit,1,1
+2,flat-ideal,4042,0.03339,reject,approve,0,none,phased,0,defer,defer,1,0
+2,flat-small,2555,0.0037149999999999996,reject,reject,1,none,none,1,defer,defer,1,1
+2,hier-code,1519,0.0036110000000000014,reject,reject,1,none,none,1,defer,defer,1,1
+2,hier-ideal,3665,0.01786100000000001,reject,reject,1,none,none,1,defer,defer,1,1
+2,hier-gated,2819,0.012346999999999997,reject,reject,1,none,none,1,defer,defer,1,1

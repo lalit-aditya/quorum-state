@@ -1,0 +1,23 @@
+Planned: 600 API calls to claude-haiku-5-5 (10 projects x 10 sessions x 4 items/session).
+note: temperature not accepted; continuing without it
+project 1/10 done (71s)
+project 2/10 done (141s)
+project 3/10 done (210s)
+project 4/10 done (277s)
+project 5/10 done (344s)
+project 6/10 done (409s)
+project 7/10 done (475s)
+project 8/10 done (542s)
+project 9/10 done (608s)
+project 10/10 done (672s)
+
+[claude-haiku-5-5; tokens reported by API; 10 projects x 10 sessions]
+scheme       calls    tokens vs transcript  accuracy  Brier  agree
+transcript     100     48727          1.00      0.80  0.218   1.00
+summary        200     76644          1.57      0.50  0.282   0.70
+retrieval      100     20380          0.42      0.40  0.332   0.60
+state          100     30420          0.62      0.60  0.353   0.60
+state+llm      200     44155          0.91      0.60  0.289   0.60
+
+Run valid: 0 parse errors, 0 truncated, 0 empty replies.
+outputs -> ../results/e7_s10

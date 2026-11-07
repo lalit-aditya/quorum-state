@@ -1,0 +1,6 @@
+project,scheme,tokens_this_project,cost_this_project,truth_macro,ans_macro,ok_macro,truth_meso,ans_meso,ok_meso,truth_micro,ans_micro,ok_micro,ok_all
+0,flat-ideal,1099,0.003993,approve,approve,1,fast-track,fast-track,1,commit,commit,1,1
+0,flat-small,1099,0.001331,approve,approve,1,fast-track,fast-track,1,commit,commit,1,1
+0,hier-code,761,0.001693,approve,approve,1,fast-track,fast-track,1,commit,commit,1,1
+0,hier-ideal,1548,0.004762,approve,approve,1,fast-track,fast-track,1,commit,commit,1,1
+0,hier-gated,1154,0.0032199999999999998,approve,approve,1,fast-track,fast-track,1,commit,commit,1,1

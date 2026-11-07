@@ -1,0 +1,110 @@
+[
+ {
+  "N_per_order": 200,
+  "generator": "quantum",
+  "reps": 300,
+  "qq_rejection_rate": 0.056666666666666664,
+  "aic_win_order_free": 0.10333333333333333,
+  "aic_win_qq": 0.7533333333333333,
+  "aic_win_saturated": 0.14333333333333334
+ },
+ {
+  "N_per_order": 200,
+  "generator": "classical",
+  "reps": 300,
+  "qq_rejection_rate": 0.04,
+  "aic_win_order_free": 0.8366666666666667,
+  "aic_win_qq": 0.11666666666666667,
+  "aic_win_saturated": 0.04666666666666667
+ },
+ {
+  "N_per_order": 200,
+  "generator": "anchor-sym",
+  "reps": 300,
+  "qq_rejection_rate": 0.03666666666666667,
+  "aic_win_order_free": 0.5333333333333333,
+  "aic_win_qq": 0.3466666666666667,
+  "aic_win_saturated": 0.12
+ },
+ {
+  "N_per_order": 200,
+  "generator": "anchor-asym",
+  "reps": 300,
+  "qq_rejection_rate": 0.21333333333333335,
+  "aic_win_order_free": 0.3233333333333333,
+  "aic_win_qq": 0.39,
+  "aic_win_saturated": 0.2866666666666667
+ },
+ {
+  "N_per_order": 500,
+  "generator": "quantum",
+  "reps": 300,
+  "qq_rejection_rate": 0.04666666666666667,
+  "aic_win_order_free": 0.056666666666666664,
+  "aic_win_qq": 0.7766666666666666,
+  "aic_win_saturated": 0.16666666666666666
+ },
+ {
+  "N_per_order": 500,
+  "generator": "classical",
+  "reps": 300,
+  "qq_rejection_rate": 0.07333333333333333,
+  "aic_win_order_free": 0.8133333333333334,
+  "aic_win_qq": 0.11333333333333333,
+  "aic_win_saturated": 0.07333333333333333
+ },
+ {
+  "N_per_order": 500,
+  "generator": "anchor-sym",
+  "reps": 300,
+  "qq_rejection_rate": 0.07333333333333333,
+  "aic_win_order_free": 0.38666666666666666,
+  "aic_win_qq": 0.49333333333333335,
+  "aic_win_saturated": 0.12
+ },
+ {
+  "N_per_order": 500,
+  "generator": "anchor-asym",
+  "reps": 300,
+  "qq_rejection_rate": 0.32,
+  "aic_win_order_free": 0.16666666666666666,
+  "aic_win_qq": 0.4,
+  "aic_win_saturated": 0.43333333333333335
+ },
+ {
+  "N_per_order": 1000,
+  "generator": "quantum",
+  "reps": 300,
+  "qq_rejection_rate": 0.03,
+  "aic_win_order_free": 0.013333333333333334,
+  "aic_win_qq": 0.8433333333333334,
+  "aic_win_saturated": 0.14333333333333334
+ },
+ {
+  "N_per_order": 1000,
+  "generator": "classical",
+  "reps": 300,
+  "qq_rejection_rate": 0.05,
+  "aic_win_order_free": 0.8666666666666667,
+  "aic_win_qq": 0.09666666666666666,
+  "aic_win_saturated": 0.03666666666666667
+ },
+ {
+  "N_per_order": 1000,
+  "generator": "anchor-sym",
+  "reps": 300,
+  "qq_rejection_rate": 0.05,
+  "aic_win_order_free": 0.2733333333333333,
+  "aic_win_qq": 0.6166666666666667,
+  "aic_win_saturated": 0.11
+ },
+ {
+  "N_per_order": 1000,
+  "generator": "anchor-asym",
+  "reps": 300,
+  "qq_rejection_rate": 0.38333333333333336,
+  "aic_win_order_free": 0.12666666666666668,
+  "aic_win_qq": 0.39,
+  "aic_win_saturated": 0.48333333333333334
+ }
+]

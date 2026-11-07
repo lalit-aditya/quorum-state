@@ -1,0 +1,6 @@
+project,scheme,truth,p_approve,correct,agrees_with_transcript,brier,tokens_this_project
+0,transcript,1.0,0.45,0,1,0.30250000000000005,732
+0,summary,1.0,0.5,1,0,0.25,1873
+0,retrieval,1.0,0.6,1,0,0.16000000000000003,600
+0,state,1.0,0.9176401709328642,1,0,0.0067831414439678255,920
+0,state+llm,1.0,0.92,1,0,0.006399999999999993,1328

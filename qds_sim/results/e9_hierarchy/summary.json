@@ -1,0 +1,204 @@
+{
+ "meta": {
+  "backend": "mock",
+  "small_model": "mock",
+  "ideal_model": "mock",
+  "token_counts": "estimated",
+  "prices_usd_per_mtok": {
+   "small": [
+    1.0,
+    5.0
+   ],
+   "ideal": [
+    3.0,
+    15.0
+   ]
+  },
+  "prices_are_placeholders": true,
+  "ground_truth": "synthetic rule written by the script author",
+  "projects": 1,
+  "sessions": 4,
+  "items_per_session": 4,
+  "decide_every": 1,
+  "escalate_margin": 0.1,
+  "escalation": {
+   "decisions": 4,
+   "escalated": 2,
+   "macro": 0,
+   "meso": 2,
+   "micro": 0,
+   "rate": 0.5
+  },
+  "state_scale": 1.0,
+  "prep_bias": 0.0,
+  "feedback_eps": 0.0,
+  "parse_errors": 0,
+  "truncated_replies": 0,
+  "empty_replies": 0,
+  "valid": true,
+  "total_calls": 18
+ },
+ "schemes": {
+  "flat-ideal": {
+   "calls": 4,
+   "input_tokens": 1041,
+   "output_tokens": 58,
+   "total_tokens": 1099,
+   "tokens_per_project": 1099.0,
+   "cost_usd": 0.003993,
+   "cost_per_project": 0.003993,
+   "acc_macro": 1.0,
+   "acc_macro_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_meso": 1.0,
+   "acc_meso_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_micro": 1.0,
+   "acc_micro_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_all": 1.0,
+   "acc_all_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "tokens_vs_baseline": 1.0,
+   "cost_vs_baseline": 1.0,
+   "bill_if_baseline_is_100": 100.0
+  },
+  "flat-small": {
+   "calls": 4,
+   "input_tokens": 1041,
+   "output_tokens": 58,
+   "total_tokens": 1099,
+   "tokens_per_project": 1099.0,
+   "cost_usd": 0.001331,
+   "cost_per_project": 0.001331,
+   "acc_macro": 1.0,
+   "acc_macro_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_meso": 1.0,
+   "acc_meso_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_micro": 1.0,
+   "acc_micro_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_all": 1.0,
+   "acc_all_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "tokens_vs_baseline": 1.0,
+   "cost_vs_baseline": 0.3333333333333333,
+   "bill_if_baseline_is_100": 33.33333333333333
+  },
+  "hier-code": {
+   "calls": 4,
+   "input_tokens": 528,
+   "output_tokens": 233,
+   "total_tokens": 761,
+   "tokens_per_project": 761.0,
+   "cost_usd": 0.001693,
+   "cost_per_project": 0.001693,
+   "acc_macro": 1.0,
+   "acc_macro_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_meso": 1.0,
+   "acc_meso_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_micro": 1.0,
+   "acc_micro_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_all": 1.0,
+   "acc_all_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "tokens_vs_baseline": 0.6924476797088263,
+   "cost_vs_baseline": 0.42399198597545706,
+   "bill_if_baseline_is_100": 42.399198597545706
+  },
+  "hier-ideal": {
+   "calls": 8,
+   "input_tokens": 1256,
+   "output_tokens": 292,
+   "total_tokens": 1548,
+   "tokens_per_project": 1548.0,
+   "cost_usd": 0.004762,
+   "cost_per_project": 0.004762,
+   "acc_macro": 1.0,
+   "acc_macro_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_meso": 1.0,
+   "acc_meso_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_micro": 1.0,
+   "acc_micro_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_all": 1.0,
+   "acc_all_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "tokens_vs_baseline": 1.4085532302092811,
+   "cost_vs_baseline": 1.192587027297771,
+   "bill_if_baseline_is_100": 119.2587027297771
+  },
+  "hier-gated": {
+   "calls": 6,
+   "input_tokens": 892,
+   "output_tokens": 262,
+   "total_tokens": 1154,
+   "tokens_per_project": 1154.0,
+   "cost_usd": 0.0032199999999999998,
+   "cost_per_project": 0.0032199999999999998,
+   "acc_macro": 1.0,
+   "acc_macro_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_meso": 1.0,
+   "acc_meso_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_micro": 1.0,
+   "acc_micro_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "acc_all": 1.0,
+   "acc_all_ci95": [
+    0.20654329147389294,
+    1.0
+   ],
+   "tokens_vs_baseline": 1.0500454959053684,
+   "cost_vs_baseline": 0.80641121963436,
+   "bill_if_baseline_is_100": 80.641121963436
+  }
+ },
+ "parse_errors": []
+}

@@ -1,0 +1,204 @@
+{
+ "meta": {
+  "backend": "anthropic",
+  "small_model": "claude-haiku-5-5",
+  "ideal_model": "claude-sonnet-5-5",
+  "token_counts": "reported by API",
+  "prices_usd_per_mtok": {
+   "small": [
+    1.0,
+    5.0
+   ],
+   "ideal": [
+    3.0,
+    15.0
+   ]
+  },
+  "prices_are_placeholders": true,
+  "ground_truth": "synthetic rule written by the script author",
+  "projects": 3,
+  "sessions": 5,
+  "items_per_session": 4,
+  "decide_every": 1,
+  "escalate_margin": 0.1,
+  "escalation": {
+   "decisions": 15,
+   "escalated": 6,
+   "macro": 2,
+   "meso": 4,
+   "micro": 3,
+   "rate": 0.4
+  },
+  "state_scale": 1.0,
+  "prep_bias": 0.0,
+  "feedback_eps": 0.0,
+  "parse_errors": 0,
+  "truncated_replies": 0,
+  "empty_replies": 0,
+  "valid": true,
+  "total_calls": 66
+ },
+ "schemes": {
+  "flat-ideal": {
+   "calls": 15,
+   "input_tokens": 6834,
+   "output_tokens": 5090,
+   "total_tokens": 11924,
+   "tokens_per_project": 3974.6666666666665,
+   "cost_usd": 0.096852,
+   "cost_per_project": 0.032284,
+   "acc_macro": 0.6666666666666666,
+   "acc_macro_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_meso": 0.3333333333333333,
+   "acc_meso_ci95": [
+    0.0614903152761605,
+    0.7923450448735121
+   ],
+   "acc_micro": 0.6666666666666666,
+   "acc_micro_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_all": 0.3333333333333333,
+   "acc_all_ci95": [
+    0.0614903152761605,
+    0.7923450448735121
+   ],
+   "tokens_vs_baseline": 1.0,
+   "cost_vs_baseline": 1.0,
+   "bill_if_baseline_is_100": 100.0
+  },
+  "flat-small": {
+   "calls": 15,
+   "input_tokens": 6819,
+   "output_tokens": 2739,
+   "total_tokens": 9558,
+   "tokens_per_project": 3186.0,
+   "cost_usd": 0.020513999999999998,
+   "cost_per_project": 0.0068379999999999995,
+   "acc_macro": 0.6666666666666666,
+   "acc_macro_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_meso": 0.3333333333333333,
+   "acc_meso_ci95": [
+    0.0614903152761605,
+    0.7923450448735121
+   ],
+   "acc_micro": 0.6666666666666666,
+   "acc_micro_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_all": 0.3333333333333333,
+   "acc_all_ci95": [
+    0.0614903152761605,
+    0.7923450448735121
+   ],
+   "tokens_vs_baseline": 0.8015766521301577,
+   "cost_vs_baseline": 0.21180770660389045,
+   "bill_if_baseline_is_100": 21.180770660389044
+  },
+  "hier-code": {
+   "calls": 15,
+   "input_tokens": 2991,
+   "output_tokens": 1572,
+   "total_tokens": 4563,
+   "tokens_per_project": 1521.0,
+   "cost_usd": 0.010851000000000001,
+   "cost_per_project": 0.0036170000000000004,
+   "acc_macro": 0.6666666666666666,
+   "acc_macro_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_meso": 0.6666666666666666,
+   "acc_meso_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_micro": 0.6666666666666666,
+   "acc_micro_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_all": 0.6666666666666666,
+   "acc_all_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "tokens_vs_baseline": 0.38267359946326734,
+   "cost_vs_baseline": 0.11203692231445919,
+   "bill_if_baseline_is_100": 11.203692231445919
+  },
+  "hier-ideal": {
+   "calls": 30,
+   "input_tokens": 7476,
+   "output_tokens": 3463,
+   "total_tokens": 10939,
+   "tokens_per_project": 3646.3333333333335,
+   "cost_usd": 0.052671,
+   "cost_per_project": 0.017557,
+   "acc_macro": 0.6666666666666666,
+   "acc_macro_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_meso": 0.6666666666666666,
+   "acc_meso_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_micro": 0.6666666666666666,
+   "acc_micro_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_all": 0.6666666666666666,
+   "acc_all_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "tokens_vs_baseline": 0.9173934921167394,
+   "cost_vs_baseline": 0.5438297608722588,
+   "bill_if_baseline_is_100": 54.38297608722588
+  },
+  "hier-gated": {
+   "calls": 21,
+   "input_tokens": 4785,
+   "output_tokens": 2379,
+   "total_tokens": 7164,
+   "tokens_per_project": 2388.0,
+   "cost_usd": 0.028337999999999995,
+   "cost_per_project": 0.009445999999999998,
+   "acc_macro": 0.6666666666666666,
+   "acc_macro_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_meso": 0.6666666666666666,
+   "acc_meso_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_micro": 0.6666666666666666,
+   "acc_micro_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "acc_all": 0.6666666666666666,
+   "acc_all_ci95": [
+    0.2076549551264879,
+    0.9385096847238394
+   ],
+   "tokens_vs_baseline": 0.6008050989600805,
+   "cost_vs_baseline": 0.2925907570313468,
+   "bill_if_baseline_is_100": 29.25907570313468
+  }
+ },
+ "parse_errors": []
+}

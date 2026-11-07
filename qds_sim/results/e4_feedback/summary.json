@@ -1,0 +1,133 @@
+{
+ "optimum": {
+  "eta=1.0": {
+   "g_opt": 1.1500000000000001,
+   "disagreement_opt": 0.5396128680479821,
+   "disagreement_no_feedback": 2.0,
+   "reduction": 0.7301935659760089
+  },
+  "eta=0.5": {
+   "g_opt": 0.75,
+   "disagreement_opt": 0.7282608695652167,
+   "disagreement_no_feedback": 2.0,
+   "reduction": 0.6358695652173916
+  },
+  "eta=0.2": {
+   "g_opt": 0.45,
+   "disagreement_opt": 1.0310332871012475,
+   "disagreement_no_feedback": 2.0,
+   "reduction": 0.48448335644937623
+  }
+ },
+ "monte_carlo": [
+  {
+   "eta": 1.0,
+   "gain": 0.0,
+   "disagreement_mc": 2.0455590224182365,
+   "disagreement_analytic": 2.0
+  },
+  {
+   "eta": 1.0,
+   "gain": 0.5,
+   "disagreement_mc": 0.6960779497697775,
+   "disagreement_analytic": 0.6904761904761904
+  },
+  {
+   "eta": 1.0,
+   "gain": 1.0,
+   "disagreement_mc": 0.5565506745401221,
+   "disagreement_analytic": 0.5439999999999998
+  },
+  {
+   "eta": 1.0,
+   "gain": 2.0,
+   "disagreement_mc": 0.6494746756613989,
+   "disagreement_analytic": 0.6262626262626262
+  },
+  {
+   "eta": 0.5,
+   "gain": 0.0,
+   "disagreement_mc": 2.047798725138649,
+   "disagreement_analytic": 2.0
+  },
+  {
+   "eta": 0.5,
+   "gain": 0.5,
+   "disagreement_mc": 0.7821498221963894,
+   "disagreement_analytic": 0.7777777777777778
+  },
+  {
+   "eta": 0.5,
+   "gain": 1.0,
+   "disagreement_mc": 0.7735710410186348,
+   "disagreement_analytic": 0.7519999999999997
+  },
+  {
+   "eta": 0.5,
+   "gain": 2.0,
+   "disagreement_mc": 1.1470990336108977,
+   "disagreement_analytic": 1.084175084175084
+  },
+  {
+   "eta": 0.2,
+   "gain": 0.0,
+   "disagreement_mc": 2.058556580397706,
+   "disagreement_analytic": 2.0
+  },
+  {
+   "eta": 0.2,
+   "gain": 0.5,
+   "disagreement_mc": 1.0509587105866434,
+   "disagreement_analytic": 1.03968253968254
+  },
+  {
+   "eta": 0.2,
+   "gain": 1.0,
+   "disagreement_mc": 1.3792653853130887,
+   "disagreement_analytic": 1.375999999999999
+  },
+  {
+   "eta": 0.2,
+   "gain": 2.0,
+   "disagreement_mc": 2.5354993090730407,
+   "disagreement_analytic": 2.4579124579124567
+  }
+ ],
+ "coordination_death": [
+  {
+   "gain": 0.0,
+   "death_time": 1.61,
+   "steady_MI": 0.0
+  },
+  {
+   "gain": 0.1,
+   "death_time": 1.96,
+   "steady_MI": 0.028721743647086708
+  },
+  {
+   "gain": 0.2,
+   "death_time": 2.51,
+   "steady_MI": 0.0821964091953865
+  },
+  {
+   "gain": 0.4,
+   "death_time": 6.21,
+   "steady_MI": 0.18363542662335416
+  },
+  {
+   "gain": 0.6,
+   "death_time": "never",
+   "steady_MI": 0.24711074646271872
+  },
+  {
+   "gain": 1.0,
+   "death_time": "never",
+   "steady_MI": 0.27916828238131147
+  },
+  {
+   "gain": 1.5,
+   "death_time": "never",
+   "steady_MI": 0.24282192399612523
+  }
+ ]
+}

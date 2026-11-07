@@ -1,0 +1,36 @@
+{
+ "transcript": {
+  "footprint_mean": 425.09,
+  "unit": "tokens",
+  "p_approve_mean": 0.4746608627367442,
+  "question_order_effect_mean_abs": 0.0,
+  "q_mean_abs": 0.0,
+  "evidence_order_sd_mean": 1.013251982318053e-16
+ },
+ "summary": {
+  "footprint_mean": 63.51,
+  "unit": "tokens",
+  "p_approve_mean": 0.4888056563839941,
+  "question_order_effect_mean_abs": 0.0,
+  "q_mean_abs": 0.0,
+  "evidence_order_sd_mean": 0.07023620458693426
+ },
+ "belief": {
+  "footprint_mean": 2.0,
+  "unit": "numbers",
+  "p_approve_mean": 0.48175895329652507,
+  "question_order_effect_mean_abs": 0.0,
+  "q_mean_abs": 0.0,
+  "evidence_order_sd_mean": 1.0456658580104771e-16
+ },
+ "quantum": {
+  "footprint_mean": 4.0,
+  "unit": "numbers",
+  "p_approve_mean": 0.25719764819150415,
+  "question_order_effect_mean_abs": 0.16273910945064546,
+  "q_mean_abs": 1.8873791418627663e-17,
+  "evidence_order_sd_mean": 0.031571376491397525
+ },
+ "_note": "mock backend: illustrative only",
+ "llm_read_accuracy": 1.0
+}

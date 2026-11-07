@@ -1,0 +1,107 @@
+Planned: 900 API calls to claude-haiku-5-5 (5 projects x 30 sessions x 4 items/session).
+note: temperature not accepted; continuing without it
+project 1/5 done (206s)
+project 2/5 done (412s)
+project 3/5 done (618s)
+Traceback (most recent call last):
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx2\_transports\default.py", line 98, in map_httpcore_exceptions
+    yield
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx2\_transports\default.py", line 245, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore2\_sync\connection_pool.py", line 242, in handle_request
+    raise exc from None
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore2\_sync\connection_pool.py", line 224, in handle_request
+    response = connection.handle_request(pool_request.request)
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore2\_sync\connection.py", line 94, in handle_request
+    raise exc
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore2\_sync\connection.py", line 74, in handle_request
+    stream = self._connect(request)
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore2\_sync\connection.py", line 140, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore2\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore2\_exceptions.py", line 17, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore2.ConnectTimeout: _ssl.c:1064: The handshake operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 1447, in _attempt_request
+    response = self._client.send(
+        request,
+        stream=stream or self._should_stream_response_body(request=request),
+        **kwargs,
+    )
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx2\_client.py", line 980, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx2\_client.py", line 1008, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx2\_client.py", line 1043, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx2\_client.py", line 1076, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx2\_transports\default.py", line 244, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx2\_transports\default.py", line 115, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx2.ConnectTimeout: _ssl.c:1064: The handshake operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lalit\Downloads\qds_sim_v5\qds_sim\experiments\e7_token_benchmark.py", line 364, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\lalit\Downloads\qds_sim_v5\qds_sim\experiments\e7_token_benchmark.py", line 310, in main
+    truth, final, per_session = run_project(backend, items, S, usage, log, batch)
+                                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lalit\Downloads\qds_sim_v5\qds_sim\experiments\e7_token_benchmark.py", line 218, in run_project
+    t, i, o = backend.ask(DECIDE + "All evidence so far:\n" + "\n".join("- " + it["text"] for it in seen))
+              ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lalit\Downloads\qds_sim_v5\qds_sim\experiments\e7_token_benchmark.py", line 109, in ask
+    msg = self.client.messages.create(**kwargs)
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_utils\_utils.py", line 294, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\resources\messages\messages.py", line 1247, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/messages",
+        ^^^^^^^^^^^^^^^
+    ...<30 lines>...
+        stream_cls=Stream[RawMessageStreamEvent],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 1687, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 1238, in request
+    return self._request(cast_to, options, stream=stream, stream_cls=stream_cls)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 1272, in _request
+    response, prepared = self._attempt_request(
+                         ~~~~~~~~~~~~~~~~~~~~~^
+        model_copy(input_options), stream=stream, retries_taken=retries_taken, call=call
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lalit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 1454, in _attempt_request
+    raise APITimeoutError(request=request) from err
+anthropic.APITimeoutError: Request timed out or interrupted. This could be due to a network timeout, dropped connection, or request cancellation. See https://docs.anthropic.com/en/api/errors#long-requests for more details.
