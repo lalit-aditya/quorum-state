@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order, Timing, and Feedback — a quantum-probability decision state (slides)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<style>
+:root{
+  --serif:"Computer Modern Serif","CMU Serif","Latin Modern Roman","Times New Roman",serif;
+  --mono:"Computer Modern Typewriter","CMU Typewriter Text","Latin Modern Mono",monospace;
+  --ink:#141414; --soft:#5a5a5a; --rule:#141414; --link:#1d1d7a;
+  --cost:#9b2226; --risk:#1f4e79; --timing:#2d6a3e;
+  --teal:#1b7f79; --violet:#5b3f8c; --grey:#8a8a8a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#cfcecb;overflow:hidden;font-family:var(--serif);color:var(--ink)}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:0 0}
+.slide{position:absolute;inset:0;background:#fff;padding:70px 84px 56px;opacity:0;visibility:hidden;
+  transition:opacity .45s ease, transform .45s ease, visibility 0s linear .45s;transform:translateY(8px);
+  box-shadow:0 1px 2px rgba(0,0,0,.18),0 12px 40px rgba(0,0,0,.18)}
+.slide.active{opacity:1;visibility:visible;transform:none;transition:opacity .45s ease, transform .45s ease, visibility 0s}
+.rh{position:absolute;top:26px;left:84px;right:84px;display:flex;justify-content:space-between;font-size:14px;font-style:italic;
+  border-bottom:.6px solid var(--rule);padding-bottom:4px;color:#333}
+.pg{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-size:15px}
+h2.sec{font-size:31px;font-weight:bold;margin:6px 0 18px;letter-spacing:.1px}
+h2.sec .n{display:inline-block;min-width:44px;margin-right:10px}
+p{font-size:20.5px;line-height:1.46;margin:0 0 12px;text-align:justify;hyphens:auto}
+.small{font-size:16px;line-height:1.4}
+.cap{font-size:15px;line-height:1.38;margin-top:8px;text-align:justify}
+.cap b{font-weight:bold}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start}
+.two.l{grid-template-columns:1.05fr .95fr}
+.two.r{grid-template-columns:.9fr 1.1fr}
+.thm{font-size:19.5px;line-height:1.45;margin:10px 0 12px;text-align:justify}
+.thm .h{font-weight:bold;font-style:normal}
+.thm .b{font-style:italic}
+.eq{font-size:21px;margin:10px 0 14px;display:flex;align-items:center;justify-content:center;position:relative}
+.eq .no{position:absolute;right:0;font-size:18px}
+.f{opacity:0;transform:translateY(6px);transition:opacity .5s ease,transform .5s ease}
+.f.on{opacity:1;transform:none}
+button,.btn{font-family:var(--serif);font-size:15px;background:#fff;color:var(--ink);border:.8px solid var(--ink);
+  padding:3px 10px 4px;cursor:pointer;margin:0 6px 6px 0;border-radius:0}
+button:hover{background:#f1f1f1}
+button.sel{background:var(--ink);color:#fff}
+.ro{font-size:18px;margin-top:6px}
+.ro i{font-style:italic}
+table.bk{border-collapse:collapse;font-size:15.5px;width:100%}
+table.bk th,table.bk td{padding:3px 8px;text-align:right;white-space:nowrap}
+table.bk th:first-child,table.bk td:first-child{text-align:left}
+table.bk thead tr{border-top:1.2px solid var(--ink);border-bottom:.6px solid var(--ink)}
+table.bk tbody tr:last-child{border-bottom:1.2px solid var(--ink)}
+table.bk tr.row{opacity:0;transition:opacity .4s, background .4s}
+table.bk tr.row.on{opacity:1}
+table.bk tr.hot{background:#f3ece4}
+.mono{font-family:var(--mono)}
+a{color:var(--link);text-decoration:none}
+canvas{display:block}
+/* nav */
+#nav{position:absolute;right:20px;bottom:16px;display:flex;gap:4px;z-index:5;font-size:14px;align-items:center;color:#555}
+#nav button{margin:0;padding:1px 9px 2px;font-size:16px}
+#bar{position:absolute;left:0;bottom:0;height:2px;background:var(--ink);transition:width .4s ease;z-index:5}
+#hint{position:absolute;left:20px;bottom:16px;font-size:13px;color:#777;font-style:italic;z-index:5}
+/* title */
+.title{text-align:center;padding-top:40px}
+.title h1{font-size:40px;line-height:1.25;margin:0 0 26px;font-weight:bold}
+.title .au{font-size:22px;margin-bottom:4px}
+.title .af{font-size:17px;margin-bottom:6px}
+.title .dt{font-size:17px;margin-bottom:34px}
+.abs{width:820px;margin:0 auto;text-align:justify}
+.abs h3{text-align:center;font-size:18px;margin:0 0 8px;font-weight:bold}
+.abs p{font-size:17px;line-height:1.42}
+/* transcript */
+.panel{border:.8px solid var(--ink);padding:12px 14px;position:relative}
+.panel .ttl{font-variant:small-caps;font-size:17px;letter-spacing:.4px;margin-bottom:8px}
+#tx{height:250px;overflow:hidden;font-family:var(--mono);font-size:13.5px;line-height:1.45;color:#222;
+  mask-image:linear-gradient(to bottom,transparent 0,#000 30%);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 30%);
+  display:flex;flex-direction:column;justify-content:flex-end}
+.stbox{font-family:var(--mono);font-size:15px;line-height:1.6}
+/* density matrix */
+.rho{display:inline-grid;grid-template-columns:auto auto;gap:4px 22px;font-size:19px;padding:6px 14px;
+  border-left:1.2px solid var(--ink);border-right:1.2px solid var(--ink);font-variant-numeric:tabular-nums}
+/* bars */
+.ob{display:grid;grid-template-columns:210px 1fr 56px;align-items:center;gap:10px;font-size:15.5px;margin:4px 0}
+.ob .tr{height:15px;border:.6px solid #999;position:relative;background:#fff}
+.ob .fi{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--ink);transition:width .7s ease}
+.ob.cur .lb{font-weight:bold}
+.ob .v{text-align:right;font-variant-numeric:tabular-nums}
+/* pipeline */
+.pipe{display:flex;gap:16px;margin-top:6px;position:relative}
+.stg{flex:1;border:1px solid var(--ink);padding:16px 14px 16px;min-height:190px;position:relative;transition:box-shadow .3s, background .3s}
+.stg .k{font-size:14px;font-variant:small-caps;letter-spacing:.5px}
+.stg .nm{font-weight:bold;font-size:24px;margin:4px 0 10px}
+.stg .ds{font-size:17px;line-height:1.4}
+.stg.on{background:#f6f6f4;box-shadow:0 0 0 2.5px var(--ink)}
+.stg .sw{position:absolute;left:0;right:0;top:0;height:5px}
+.chip{font-family:var(--mono);font-size:18px;line-height:1.55;border:.8px dashed var(--ink);padding:14px 18px;margin-top:30px;min-height:88px;
+  transition:opacity .3s}
+.legend{font-size:15.5px;margin-top:16px}
+.legend span{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin:0 5px 0 14px}
+/* results */
+.chart{display:flex;gap:30px;margin-top:6px}
+.grp{flex:1}
+.grp .gt{font-size:15px;font-style:italic;text-align:center;margin-top:6px;line-height:1.3}
+.cols{height:210px;display:flex;align-items:flex-end;gap:5px;border-bottom:1px solid var(--ink);position:relative}
+.col{flex:1;background:var(--ink);height:0;transition:height .9s cubic-bezier(.2,.7,.2,1);position:relative}
+.col i{position:absolute;top:-19px;left:50%;transform:translateX(-50%);font-style:normal;font-size:13px;white-space:nowrap}
+.claims{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:6px}
+.claims h4{font-size:18px;margin:0 0 6px;border-bottom:.6px solid var(--ink);padding-bottom:4px;font-variant:small-caps;letter-spacing:.4px}
+.claims ul{margin:0;padding-left:18px;font-size:16.5px;line-height:1.42}
+.claims li{margin-bottom:6px}
+.kv .big{font-size:46px;font-weight:bold;line-height:1;margin-bottom:4px}
+.kv{display:flex;gap:34px;margin:6px 0 14px}
+.kv div{font-size:15px;line-height:1.3}
+input[type=range]{width:100%;accent-color:#141414}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- 1 TITLE -->
+<section class="slide" data-id="title">
+  <div class="title">
+    <h1>Order, Timing, and Feedback:<br>A Quantum-Probability Decision State for Role-Aware Agents</h1>
+    <div class="au">Lalit Aditya R D</div>
+    <div class="af">Vellore Institute of Technology, Chennai, India</div>
+    <div class="dt">Draft preprint &mdash; November 2026</div>
+    <div class="abs">
+      <h3>Abstract</h3>
+      <p>Language-model agents store decisions as text and expose no explicit model of how the <em>order</em> and <em>timing</em> of evaluations shape a choice. We propose a quantum-probability decision state: a compact external memory in which each role holds a density matrix, evidence acts as rotations generated by non-commuting criterion operators, commitment is a Lüders projection, and stored decisions drift toward a default under an open-system channel. We take the QQ equality as a falsifiable test of order effects, an overlap law for schedule-dependent drift, and proportional output feedback to keep coupled roles coordinated. Quantum probability is used purely as mathematics on ordinary computers.</p>
+    </div>
+  </div>
+  <div class="pg">1</div>
+</section>
+
+<!-- 2 PROBLEM -->
+<section class="slide" data-id="problem">
+  <div class="rh"><span>Lalit Aditya R D</span><span>Order, Timing, and Feedback</span></div>
+  <h2 class="sec"><span class="n">1</span>Introduction</h2>
+  <div class="two l">
+    <div>
+      <p>An agent that decides for several stakeholders (finance, engineering, operations) usually keeps a long transcript and <em>re-reads it for every decision</em>. Cost grows with history, and the order and timing of the evidence are left implicit.</p>
+      <p class="f">We replace the transcript with a <b>decision state</b>: a small density matrix per role, updated in plain code. The memory cost per decision is $d^2-1$ real numbers, whatever the length of the history.</p>
+      <p class="f small" style="color:var(--soft)">The question under test is not &ldquo;is this more accurate than an LLM?&rdquo; but whether such a state can keep a long decision history cheaply, show human-like order effects, and be controlled through timing and feedback.</p>
+    </div>
+    <div>
+      <div class="panel">
+        <div class="ttl">Transcript memory</div>
+        <div id="tx"></div>
+        <div class="ro" style="font-size:15px;border-top:.6px solid #999;padding-top:5px">re-read per decision: <b id="txTok">0</b> tokens &nbsp;·&nbsp; session <span id="txSes">1</span></div>
+      </div>
+      <div class="panel" style="margin-top:14px">
+        <div class="ttl">Decision state ($d=3$)</div>
+        <div class="stbox" id="stb"></div>
+      </div>
+      <div class="cap"><b>Figure 1.</b> Schematic. Left grows with every evidence item; the stored state stays at eight real numbers plus a timestamp.</div>
+    </div>
+  </div>
+  <div class="pg">2</div>
+</section>
+
+<!-- 3 STATE -->
+<section class="slide" data-id="state">
+  <div class="rh"><span>Lalit Aditya R D</span><span>Order, Timing, and Feedback</span></div>
+  <h2 class="sec"><span class="n">2</span>The decision state</h2>
+  <div class="two r">
+    <div>
+      <p>For role $r$ the state is a density matrix $\rho_r$. An answer $x$ to a question is a projector $P_x$, and its probability is read straight from the state:</p>
+      <div class="eq">$P(\text{approve}) = \operatorname{Tr}(P_{\text{approve}}\,\rho)$</div>
+      <p class="f">In the two-dimensional illustration, $\rho=\tfrac12(I+\boldsymbol r\cdot\boldsymbol\sigma)$ is a point in the Bloch ball. The north pole is &ldquo;approve&rdquo;; the south pole is the default, &ldquo;do not approve&rdquo;.</p>
+      <div class="thm f"><span class="h">Lemma 1</span> (Reciprocity of rank-one answers). <span class="b">If the &ldquo;yes&rdquo; answers to $A$ and $B$ are rank-one projectors, then $P(B_y|A_y)=P(A_y|B_y)=|\langle a|b\rangle|^2$ for every state.</span></div>
+      <p class="f small">Human survey data violate this reciprocity, so realistic answers need subspaces of rank $\ge 2$, and the stored state lives in $d\ge 3$ dimensions.</p>
+    </div>
+    <div>
+      <canvas id="cvState" data-w="560" data-h="330"></canvas>
+      <div style="display:flex;gap:30px;align-items:center;justify-content:center;margin-top:4px">
+        <div><span style="font-size:19px;font-style:italic">ρ =</span> <div class="rho" id="rhoM"></div></div>
+        <div class="ro">$P(\text{approve})$ = <b id="pState">–</b></div>
+      </div>
+      <div class="cap"><b>Figure 2.</b> A live state. The matrix entries and the probability are computed from the Bloch vector each frame.</div>
+    </div>
+  </div>
+  <div class="pg">3</div>
+</section>
+
+<!-- 4 EVIDENCE -->
+<section class="slide" data-id="evidence">
+  <div class="rh"><span>Lalit Aditya R D</span><span>Order, Timing, and Feedback</span></div>
+  <h2 class="sec"><span class="n">3</span>Evidence acts as a rotation</h2>
+  <div class="two r">
+    <div>
+      <p>Each role evaluates a criterion with a Hermitian generator $G_r=\hat{\boldsymbol n}_r\cdot\boldsymbol\sigma$. Evidence of strength $\theta$ about that criterion acts as</p>
+      <div class="eq">$U_r(\theta)=\exp(-i\,\theta\,G_r/2),\qquad \rho\mapsto U\rho\,U^\dagger$<span class="no">(2)</span></div>
+      <p class="f">Each criterion is a rotation <em>axis</em>. Different roles get different axes, so their evidence moves the state in different directions.</p>
+      <div class="thm f"><span class="h">Proposition 2</span> (Role conflict). <span class="b">For axes at angle $\varphi$, $\|[G_a,G_b]\|=2\sin\varphi$.</span></div>
+      <p class="f small">We call this norm the <em>conflict</em> between two roles: zero for compatible criteria, maximal for perpendicular ones. In simulation, order sensitivity tracks it with Pearson $r=0.86$.</p>
+    </div>
+    <div>
+      <canvas id="cvEv" data-w="560" data-h="380"></canvas>
+      <div class="ro" style="text-align:center" id="evLbl">&nbsp;</div>
+      <div class="cap"><b>Figure 3.</b> Cost rotates about $y$, risk about $x$, timing about $z$. Exaggerated angles for visibility.</div>
+    </div>
+  </div>
+  <div class="pg">4</div>
+</section>
+
+<!-- 5 ORDER -->
+<section class="slide" data-id="order">
+  <div class="rh"><span>Lalit Aditya R D</span><span>Order, Timing, and Feedback</span></div>
+  <h2 class="sec"><span class="n">4</span>Order changes the outcome</h2>
+  <div class="two">
+    <div>
+      <div class="thm"><span class="h">Proposition 1</span> (Commuting criteria produce no order effect). <span class="b">If $[G_a,G_b]=0$, every outcome probability is independent of the order of the evidence. Rotations about a common axis never produce order effects.</span></div>
+      <p class="small">Worked example: a solar project. Cost about $y$ with $\theta=-0.3$, risk about $x$ with $\theta=-0.4$, timing about $z$ with $\theta=0.6$, prior polar angle $1.40$. The same three pieces of evidence, in six orders:</p>
+      <div id="obars" style="margin-top:6px"></div>
+      <div style="font-size:12.5px;color:#666;margin:2px 0 8px 220px">bar axis from 0.50 to 0.75</div>
+      <div><button id="oDistinct" class="sel">Distinct axes</button><button id="oSame">Same axis (Prop. 1)</button><button id="oPlay">Replay</button></div>
+    </div>
+    <div>
+      <canvas id="cvOrd" data-w="520" data-h="370"></canvas>
+      <div class="ro" style="text-align:center"><span id="ordName">&nbsp;</span> &nbsp; $P(\text{approve})$ = <b id="ordP">–</b></div>
+      <div class="cap"><b>Figure 4.</b> Computed live from Eq. (2). With distinct axes approval ranges from 0.577 to 0.720 depending only on order (paper, Table 1). With one shared axis all six orders agree.</div>
+    </div>
+  </div>
+  <div class="pg">5</div>
+</section>
+
+<!-- 6 QQ -->
+<section class="slide" data-id="qq">
+  <div class="rh"><span>Lalit Aditya R D</span><span>Order, Timing, and Feedback</span></div>
+  <h2 class="sec"><span class="n">5</span>The QQ equality and real survey data</h2>
+  <p>For two questions answered back to back, with nothing else changing the state in between, quantum probability predicts a parameter-free equality:</p>
+  <div class="eq">$q \equiv \big[p(A_yB_n)+p(A_nB_y)\big]-\big[p(B_yA_n)+p(B_nA_y)\big] = 0$<span class="no">(4)</span></div>
+  <table class="bk" id="qqT" style="margin-top:4px">
+    <thead><tr><th>Data set</th><th>$N_{AB}/N_{BA}$</th><th>$q$</th><th>$z$</th><th>$G^2_{\text{QQ}}$</th><th>$G^2_{\text{rank-1}}$</th><th>$P(B|A)$ / $P(A|B)$</th><th>Best AIC</th></tr></thead>
+    <tbody>
+      <tr class="row"><td>Clinton–Gore</td><td>447/432</td><td>−0.003</td><td>−0.11</td><td>0.01</td><td>104</td><td>0.92 / 0.74</td><td>QQ-constr.</td></tr>
+      <tr class="row"><td>Gingrich–Dole</td><td>437/377</td><td>−0.003</td><td>−0.09</td><td>0.01</td><td>235</td><td>0.83 / 0.50</td><td>QQ-constr.</td></tr>
+      <tr class="row"><td>White–Black</td><td>459/486</td><td>−0.019</td><td>−0.75</td><td>0.56</td><td>188</td><td>0.96 / 0.87</td><td>QQ-constr.</td></tr>
+      <tr class="row" id="rj"><td>Rose–Jackson</td><td>506/462</td><td>+0.151</td><td><b>+5.30</b></td><td>28.56</td><td>106</td><td>0.51 / 0.86</td><td>Saturated</td></tr>
+      <tr class="row"><td>Racial hostility (lab)</td><td>116/108</td><td>+0.076</td><td>+1.22</td><td>1.48</td><td>62</td><td>0.81 / 0.83</td><td>QQ-constr.</td></tr>
+      <tr class="row"><td>Affirmative action (lab)</td><td>118/106</td><td>+0.043</td><td>+0.83</td><td>0.69</td><td>26</td><td>0.92 / 0.81</td><td>Order-free</td></tr>
+    </tbody>
+  </table>
+  <div class="cap"><b>Table 2.</b> Reanalysis of the six data sets in Wang &amp; Busemeyer (2013). The QQ-constrained model has the best AIC in four of six. Only Rose–Jackson, where background text was read between the questions, violates the equality. The rank-one model is rejected everywhere ($G^2\ge 26$ on 2 df), because reciprocity fails.</div>
+  <p class="f small" style="margin-top:10px">Inserting evidence, a reminder or drift between the questions generically gives $q\neq0$: delay itself becomes a prediction. Caveat: symmetric classical carry-over also satisfies $q=0$ (Prop. 4), so the equality alone cannot separate quantum from classical accounts.</p>
+  <div class="pg">6</div>
+</section>
+
+<!-- 7 DRIFT -->
+<section class="slide" data-id="drift">
+  <div class="rh"><span>Lalit Aditya R D</span><span>Order, Timing, and Feedback</span></div>
+  <h2 class="sec"><span class="n">6</span>Commitment, review, and drift</h2>
+  <div class="two r">
+    <div>
+      <p><b>Commitment</b> is a Lüders projection: answer $x$ occurs with probability $p_x=\operatorname{Tr}(P_x\rho)$ and the state becomes $P_x\rho P_x/p_x$.</p>
+      <p class="f"><b>Review</b> with intensity $s\in[0,1]$ is an unsharp measurement; $s=1$ is commitment, $s=0$ leaves the state alone:</p>
+      <div class="eq f">$M_\pm=\sqrt{\tfrac{1+s}{2}}\,P_x+\sqrt{\tfrac{1-s}{2}}\,(I-P_x)$<span class="no">(3)</span></div>
+      <p class="f"><b>Drift.</b> Between operations a stored decision interacts weakly with its information environment and relaxes toward the default, the status quo. Each stored state carries a timestamp, so staleness is part of the memory.</p>
+    </div>
+    <div>
+      <canvas id="cvDr" data-w="560" data-h="300"></canvas>
+      <canvas id="cvDrP" data-w="560" data-h="150"></canvas>
+      <div class="cap"><b>Figure 5.</b> A leaning state is committed (projected to &ldquo;approve&rdquo;), then drifts toward the default under amplitude damping. Below: $P(\text{approve})$ against time.</div>
+    </div>
+  </div>
+  <div class="pg">7</div>
+</section>
+
+<!-- 8 OVERLAP -->
+<section class="slide" data-id="overlap">
+  <div class="rh"><span>Lalit Aditya R D</span><span>Order, Timing, and Feedback</span></div>
+  <h2 class="sec"><span class="n">7</span>Timing: the overlap law</h2>
+  <div class="two r">
+    <div>
+      <p class="small" style="font-size:18px">From dynamical decay control: the drift rate of a stored decision is the <em>overlap</em> between the spectrum of its information environment $G$ and the spectrum of its review schedule $F_\tau$.</p>
+      <div class="eq" style="font-size:19px">$R=2\pi\!\int\! d\omega\, G(\omega+\omega_a)\,F_\tau(\omega)$<span class="no">(5)</span></div>
+      <div class="eq" style="font-size:19px">$F_\tau(\omega)=\frac{\tau}{2\pi}\,\mathrm{sinc}^2\!\big(\tfrac{\omega\tau}{2}\big)$<span class="no">(6)</span></div>
+      <p class="small" style="font-size:17px">Frequent review broadens $F_\tau$. <b>Resonant</b> decision: broadening lowers the overlap (decision Zeno). <b>Detuned</b> decision: review near the environment's correlation time raises it (decision anti-Zeno, up to $2.11\times$).</p>
+      <div class="thm" style="font-size:17px"><span class="h">Proposition 5</span> (White-noise null). <span class="b">If $G$ is flat, $R=R_{\mathrm{GR}}$ for every review schedule.</span></div>
+      <div><button data-m="det" class="sel">Detuned ($3\xi$)</button><button data-m="res">Resonant</button><button data-m="flat">Flat (white noise)</button></div>
+      <div style="display:flex;gap:12px;align-items:center;font-size:16px">interval&nbsp;$\tau/\tau_c$ <input id="tauR" type="range" min="0" max="1000" value="400"> <b id="tauV" style="min-width:40px">–</b></div>
+    </div>
+    <div>
+      <canvas id="cvSp" data-w="580" data-h="200"></canvas>
+      <canvas id="cvRt" data-w="580" data-h="230"></canvas>
+      <div class="ro" style="text-align:center">drift rate $R/R_{\mathrm{GR}}$ = <b id="rV">–</b> &nbsp; <span id="rRegime" style="font-style:italic"></span></div>
+      <div class="cap"><b>Figure 6.</b> Top: environment spectrum (solid), review spectrum (dashed), overlap (shaded). Bottom: drift rate relative to no review, Lorentzian environment with $\xi=1$, integrated numerically from Eqs. (5)–(6).</div>
+    </div>
+  </div>
+  <div class="pg">8</div>
+</section>
+
+<!-- 9 FEEDBACK -->
+<section class="slide" data-id="feedback">
+  <div class="rh"><span>Lalit Aditya R D</span><span>Order, Timing, and Feedback</span></div>
+  <h2 class="sec"><span class="n">8</span>Feedback keeps roles coordinated</h2>
+  <div class="two r">
+    <div>
+      <p class="small" style="font-size:18px">Linearise each role near its default. Outcomes are observed with noise, $y=Cx+v$, with observation efficiency $\eta\in(0,1]$. Proportional feedback $u=g\,y$ gives the closed loop</p>
+      <div class="eq" style="font-size:19px">$A_{\mathrm{cl}}=A+g\,fC,\qquad D_{\mathrm{cl}}=D+g^2\,\tfrac{r}{\eta}\,ff^\top$<span class="no">(8)</span></div>
+      <p class="small" style="font-size:18px">The gain pulls roles together (useful) and injects observation noise in proportion to $g^2$ (harmful). So there is an <b>interior optimal gain</b>, and it falls as observation gets noisier.</p>
+      <p class="small f" style="font-size:17px">Without feedback, cross-role mutual information can fall below the level joint action needs in finite time: <em>coordination sudden death</em> (Def. 1).</p>
+      <div style="margin-top:6px">$\eta$: <button data-eta="1" class="sel">1</button><button data-eta="0.5">0.5</button><button data-eta="0.2">0.2</button></div>
+      <div style="display:flex;gap:12px;align-items:center;font-size:16px">gain $g$ <input id="gR" type="range" min="0" max="600" value="0"> <b id="gV" style="min-width:40px">–</b></div>
+    </div>
+    <div>
+      <canvas id="cvFb" data-w="580" data-h="230"></canvas>
+      <canvas id="cvTr" data-w="580" data-h="190"></canvas>
+      <div class="cap"><b>Figure 7.</b> Top: stationary disagreement $\mathrm{Var}(q_a-q_b)=\frac{2+g^2 r/\eta}{2(a+g)}$ for $\eta=1,0.5,0.2$ ($a=0.25$, $r=0.25$, illustrative). Dots mark the optima. Bottom: two roles simulated at the chosen gain.</div>
+    </div>
+  </div>
+  <div class="pg">9</div>
+</section>
+
+<!-- 10 PIPELINE -->
+<section class="slide" data-id="pipeline">
+  <div class="rh"><span>Lalit Aditya R D</span><span>Order, Timing, and Feedback</span></div>
+  <h2 class="sec"><span class="n">9</span>One decision cycle, step by step</h2>
+  <p>A small model reads each evidence item once. Everything between extraction and the final answer is plain code with no tokens. A larger model reads only a one-line description of the state.</p>
+  <div class="pipe" id="pipe">
+    <div class="stg"><div class="sw" style="background:var(--teal)"></div><div class="k">stage 1</div><div class="nm">Extract</div><div class="ds">Role, direction $\pm1$, strength in $[0,1]$.</div></div>
+    <div class="stg"><div class="sw" style="background:var(--grey)"></div><div class="k">stage 2</div><div class="nm">Update</div><div class="ds">Rotate about the role's axis, Eq. (2).</div></div>
+    <div class="stg"><div class="sw" style="background:var(--grey)"></div><div class="k">stage 3</div><div class="nm">Drift &amp; review</div><div class="ds">Relax toward default by elapsed time.</div></div>
+    <div class="stg"><div class="sw" style="background:var(--grey)"></div><div class="k">stage 4</div><div class="nm">Coordinate</div><div class="ds">Proportional feedback across roles.</div></div>
+    <div class="stg"><div class="sw" style="background:var(--violet)"></div><div class="k">stage 5</div><div class="nm">Answer</div><div class="ds">Large model writes from a one-line state.</div></div>
+  </div>
+  <div class="chip" id="chip"></div>
+  <div class="legend"><span style="background:var(--teal);margin-left:0"></span>small-model call <span style="background:var(--violet)"></span>large-model call <span style="background:var(--grey)"></span>plain code, no tokens</div>
+  <div class="cap"><b>Figure 8.</b> The five-stage framework, one evidence item at a time. The example item and numbers are illustrative.</div>
+  <div class="pg">10</div>
+</section>
+
+<!-- 11 RESULTS -->
+<section class="slide" data-id="results">
+  <div class="rh"><span>Lalit Aditya R D</span><span>Order, Timing, and Feedback</span></div>
+  <h2 class="sec"><span class="n">10</span>Cost and accuracy with real API calls</h2>
+  <p class="small" style="font-size:18px">Orchestration benchmark (e8): small extractor, large answerer, three runs on templated multi-role evidence. Placeholder prices.</p>
+  <div class="two" style="gap:40px">
+    <div>
+      <div style="font-variant:small-caps;font-size:17px;margin-bottom:22px">Saving vs. large model re-reading the transcript</div>
+      <div class="chart" id="chSave"></div>
+    </div>
+    <div>
+      <div style="font-variant:small-caps;font-size:17px;margin-bottom:22px">Accuracy</div>
+      <div class="chart" id="chAcc"></div>
+    </div>
+  </div>
+  <div class="legend" id="resLeg"></div>
+  <div class="cap"><b>Figure 9.</b> Runs: (a) 10 sessions, 10 projects, answer every session; (b) 30 sessions, 5 projects, every session; (c) 30 sessions, 5 projects, every 5th session. Most of the saving comes from using a small model: a small model re-reading the transcript alone is 87–90% cheaper. The state schemes were less accurate in every run; with 5–10 projects the intervals overlap.</div>
+  <div class="pg">11</div>
+</section>
+
+<!-- 12 NOISE -->
+<section class="slide" data-id="noise">
+  <div class="rh"><span>Lalit Aditya R D</span><span>Order, Timing, and Feedback</span></div>
+  <h2 class="sec"><span class="n">11</span>Why the state loses accuracy</h2>
+  <div class="two" style="gap:40px">
+    <div>
+      <p style="font-size:19px">A noise-stability analysis (e10, no API) separates extraction noise from the state's functional form. Even with <em>exact</em> extraction, the state's decision agrees with an order-independent additive rule only:</p>
+      <div class="kv">
+        <div><div class="big" data-count="69">0%</div>10 sessions</div>
+        <div><div class="big" data-count="48">0%</div>30 sessions (chance)</div>
+        <div><div class="big" data-count="90">0%</div>rotation scale 0.1</div>
+      </div>
+    </div>
+    <div>
+      <p class="f" style="font-size:19px">Non-commuting rotations make the decision depend mainly on <em>recent</em> evidence. Small rotations restore agreement, but then the order effects disappear, and with them the property the framework is built to produce.</p>
+      <p class="f small">So an additive ground truth is not a fair test. Whether the state beats order-blind memories on <em>order-dependent</em> tasks is untested; <span class="mono">e11_accuracy_eval.py</span> is written for it.</p>
+    </div>
+  </div>
+  <img src="figures/noise_stability.png" alt="Noise stability results" style="width:100%;margin-top:4px">
+  <div class="cap"><b>Figure 10.</b> Left to right: noise stability by correlation; decision disagreement between two noisy extractions; accuracy against the clean truth; agreement with the additive rule by rotation scale. Red: decision state. Blue: additive rule.</div>
+  <div class="pg">12</div>
+</section>
+
+<!-- 13 CLAIMS -->
+<section class="slide" data-id="claims">
+  <div class="rh"><span>Lalit Aditya R D</span><span>Order, Timing, and Feedback</span></div>
+  <h2 class="sec"><span class="n">12</span>What is shown, and what is not</h2>
+  <div class="claims">
+    <div class="f"><h4>Mathematical facts</h4><ul>
+      <li>Commuting criteria give no order effects.</li><li>Conflict $=2\sin\varphi$.</li><li>Rank-one answers force reciprocity.</li><li>Flat environment gives schedule-independent drift.</li><li>Symmetric carry-over satisfies QQ.</li></ul></div>
+    <div class="f"><h4>Supported by data</h4><ul>
+      <li>QQ equality holds in survey data; rank-one models fail (reanalysis of six data sets).</li><li>Overlap law, Zeno and anti-Zeno, feedback: physics results, used here by analogy.</li><li>State is 52–93% cheaper than a large model re-reading the transcript, but less accurate.</li></ul></div>
+    <div class="f"><h4>Hypotheses needing data</h4><ul>
+      <li>Decision anti-Zeno in people or agents.</li><li>Reminder–commitment equivalence.</li><li>Delay-induced QQ violation.</li><li>Interior feedback optimum in people or agents.</li><li>Advantage on order-dependent tasks.</li></ul></div>
+  </div>
+  <p class="f" style="margin-top:26px">The framework makes no claim that brains or language models are quantum systems. Its value, if any, is an explicit and testable model of order and timing, with preregistrable human and agent experiments to test it.</p>
+  <p class="f small">Paper, simulation package (24 tests, experiments e0–e11) and raw results: <a href="https://github.com/lalit-aditya/quorum-state">github.com/lalit-aditya/quorum-state</a> &nbsp;·&nbsp; Licensed under the Apache License, Version 2.0.</p>
+  <div class="pg">13</div>
+</section>
+
+<div id="bar"></div>
+<div id="hint">← → or click to advance · F for full screen</div>
+<div id="nav"><button id="prev">‹</button><span id="cnt"></span><button id="next">›</button></div>
+</div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const SERIF='"Computer Modern Serif","CMU Serif","Latin Modern Roman","Times New Roman",serif';
+const INK='#141414';
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function hd(c){const w=+c.dataset.w,h=+c.dataset.h,k=2;c.width=w*k;c.height=h*k;c.style.width=w+'px';c.style.height=h+'px';
+  const x=c.getContext('2d');x.setTransform(k,0,0,k,0,0);x.W=w;x.H=h;return x;}
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+
+/* canvas text with _{sub} support */
+function txt(ctx,str,x,y){const parts=str.split(/(_\{[^}]*\})/).filter(Boolean);
+  const base=ctx.font,m=base.match(/(\d+(?:\.\d+)?)px/),sz=m?+m[1]:14,small=base.replace(m[0],(sz*0.72).toFixed(1)+'px');
+  const segs=parts.map(p=>p.startsWith('_{')?{t:p.slice(2,-1),sub:1}:{t:p,sub:0});
+  let w=0;segs.forEach(g=>{ctx.font=g.sub?small:base;g.w=ctx.measureText(g.t).width;w+=g.w;});
+  const al=ctx.textAlign;let X=al==='center'?x-w/2:al==='right'?x-w:x;ctx.textAlign='left';
+  segs.forEach(g=>{ctx.font=g.sub?small:base;ctx.fillText(g.t,X,y+(g.sub?sz*0.28:0));X+=g.w;});
+  ctx.font=base;ctx.textAlign=al;}
+/* ---------- vectors ---------- */
+const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+function rot(v,n,t){const c=Math.cos(t),s=Math.sin(t),k=cross(n,v),d=dot(n,v)*(1-c);
+  return [v[0]*c+k[0]*s+n[0]*d, v[1]*c+k[1]*s+n[1]*d, v[2]*c+k[2]*s+n[2]*d];}
+
+/* ---------- Bloch sphere ---------- */
+function Bloch(ctx,cx,cy,R){
+  const az=-0.55, el=0.30, ca=Math.cos(az), sa=Math.sin(az), ce=Math.cos(el), se=Math.sin(el);
+  const P=v=>{const x1=v[0]*ca-v[1]*sa, y1=v[0]*sa+v[1]*ca, z1=v[2];
+    return {x:cx+R*y1, y:cy-R*(z1*ce-x1*se), d:x1*ce+z1*se};};
+  function circle(f,col,lw,faint){ // f: t -> point
+    const N=140; let prev=null;
+    for(let i=0;i<=N;i++){const p=P(f(i/N*2*Math.PI));
+      if(prev){ctx.beginPath();ctx.setLineDash(p.d<0?[3,4]:[]);ctx.strokeStyle=p.d<0?'#bbb':col;ctx.lineWidth=lw;
+        ctx.moveTo(prev.x,prev.y);ctx.lineTo(p.x,p.y);ctx.stroke();}
+      prev=p;}
+    ctx.setLineDash([]);
+  }
+  return {P,draw(o={}){
+    ctx.save();
+    ctx.beginPath();ctx.arc(cx,cy,R,0,2*Math.PI);ctx.strokeStyle=INK;ctx.lineWidth=1.1;ctx.stroke();
+    circle(t=>[Math.cos(t),Math.sin(t),0],'#777',.8);
+    circle(t=>[Math.sin(t),0,Math.cos(t)],'#ccc',.6);
+    // axes
+    [['x',[1,0,0]],['y',[0,1,0]],['z',[0,0,1]]].forEach(([l,n])=>{
+      const a=P(n.map(v=>-v*1.12)),b=P(n.map(v=>v*1.12));
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle='#aaa';ctx.lineWidth=.7;ctx.stroke();
+      if(l!=='z'){const q=P(n.map(v=>v*1.24));ctx.fillStyle='#555';ctx.font='italic 15px '+SERIF;ctx.textAlign='center';ctx.fillText(l,q.x,q.y+5);}
+    });
+    (o.hi||[]).forEach(h=>{const a=P(h.n.map(v=>-v*1.3)),b=P(h.n.map(v=>v*1.3));
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=h.color;ctx.lineWidth=2.4;ctx.stroke();
+      ctx.beginPath();ctx.arc(b.x,b.y,3.2,0,7);ctx.fillStyle=h.color;ctx.fill();
+      if(h.label){ctx.font='bold 15px '+SERIF;ctx.textAlign='left';ctx.fillText(h.label,b.x+7,b.y+4);}});
+    // poles
+    ctx.fillStyle=INK;ctx.font='italic 15px '+SERIF;ctx.textAlign='center';
+    const N_=P([0,0,1.13]),S_=P([0,0,-1.13]);
+    ctx.fillText('|approve⟩',N_.x,N_.y-6);ctx.fillText('|reject⟩  (default)',S_.x,S_.y+16);
+    (o.trails||[]).forEach(t=>{if(t.pts.length<2)return;ctx.beginPath();t.pts.forEach((v,i)=>{const p=P(v);i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y)});
+      ctx.strokeStyle=t.color;ctx.lineWidth=t.w||1.6;ctx.stroke();});
+    if(o.vec){const v=o.vec,p=P(v),pz=P([0,0,v[2]]),O=P([0,0,0]);
+      ctx.setLineDash([2,3]);ctx.strokeStyle='#888';ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(pz.x,pz.y);ctx.stroke();ctx.setLineDash([]);
+      ctx.beginPath();ctx.moveTo(O.x,O.y);ctx.lineTo(p.x,p.y);ctx.strokeStyle=o.vc||INK;ctx.lineWidth=2.4;ctx.stroke();
+      ctx.beginPath();ctx.arc(p.x,p.y,4.4,0,7);ctx.fillStyle=o.vc||INK;ctx.fill();}
+    ctx.restore();}};
+}
+
+/* ---------- plotting helper ---------- */
+function axes(ctx,box,o){ // box {x,y,w,h}
+  ctx.strokeStyle=INK;ctx.lineWidth=.9;ctx.beginPath();ctx.moveTo(box.x,box.y);ctx.lineTo(box.x,box.y+box.h);ctx.lineTo(box.x+box.w,box.y+box.h);ctx.stroke();
+  ctx.fillStyle=INK;ctx.font='14px '+SERIF;
+  if(o.xl){ctx.textAlign='center';txt(ctx,o.xl,box.x+box.w/2,box.y+box.h+32);}
+  if(o.yl){ctx.save();ctx.translate(box.x-36,box.y+box.h/2);ctx.rotate(-Math.PI/2);ctx.textAlign='center';txt(ctx,o.yl,0,0);ctx.restore();}
+  (o.xt||[]).forEach(([v,l])=>{const X=o.fx(v);ctx.beginPath();ctx.moveTo(X,box.y+box.h);ctx.lineTo(X,box.y+box.h+4);ctx.stroke();ctx.textAlign='center';ctx.font='12.5px '+SERIF;ctx.fillText(l,X,box.y+box.h+17);});
+  (o.yt||[]).forEach(([v,l])=>{const Y=o.fy(v);ctx.beginPath();ctx.moveTo(box.x-4,Y);ctx.lineTo(box.x,Y);ctx.stroke();ctx.textAlign='right';ctx.font='12.5px '+SERIF;ctx.fillText(l,box.x-7,Y+4);});
+}
+
+/* =============== SLIDE CONTROLLERS =============== */
+const ctrl={};
+
+/* 2. transcript */
+(()=>{
+  const roles=['Finance','Engineering','Operations'];
+  const items={Finance:['capex estimate revised up 12%','grant approved for phase one','loan rate fixed at 6.1%','budget review flags overrun risk'],
+    Engineering:['inverter supplier slipped two weeks','site survey: soil load acceptable','panel yield test passed','grid interconnect study delayed'],
+    Operations:['permits filed with the county','crew available from March','maintenance contract quote received','storage site needs fencing']};
+  let timer,ses=1,tok=0,n=0;
+  function line(){
+    const r=roles[Math.floor(Math.random()*3)], t=items[r][Math.floor(Math.random()*4)];
+    const d=document.createElement('div');d.textContent=`[s${ses}] ${r}: ${t}.`;$('#tx').appendChild(d);
+    if($('#tx').children.length>40)$('#tx').firstChild.remove();
+    tok+=d.textContent.split(/\s+/).length*1.35|0; n++; if(n%3===0)ses++;
+    $('#txTok').textContent=tok.toLocaleString(); $('#txSes').textContent=ses;
+    const a=(Math.sin(n*.7)*.4).toFixed(3),b=(Math.cos(n*.3)*.3).toFixed(3);
+    $('#stb').innerHTML=`r = (${a}, ${b}, ${(0.2+Math.sin(n*.2)*.3).toFixed(3)}, 0.104, −0.031, 0.052, 0.018, −0.207)<br>t<sub>stored</sub> = session ${ses}`;
+  }
+  ctrl.problem={enter(){ $('#tx').innerHTML='';ses=1;tok=0;n=0;line();timer=setInterval(line,650);},leave(){clearInterval(timer)}};
+})();
+
+/* 3. live state */
+(()=>{
+  const c=$('#cvState'),x=hd(c),B=Bloch(x,280,170,128);let raf,t0;
+  function f(ts){const t=(ts-t0)/1000;
+    const th=1.1+0.75*Math.sin(t*.45), ph=t*.6, r=0.78+0.18*Math.sin(t*.31);
+    const v=[r*Math.sin(th)*Math.cos(ph),r*Math.sin(th)*Math.sin(ph),r*Math.cos(th)];
+    x.clearRect(0,0,x.W,x.H);B.draw({vec:v});
+    const f3=n=>(n>=0?' ':'−')+Math.abs(n).toFixed(3);
+    const im=v[1]/2;
+    $('#rhoM').innerHTML=`<span>${f3((1+v[2])/2)}</span><span>${f3(v[0]/2)} ${im>=0?'−':'+'} ${Math.abs(im).toFixed(3)}<i>i</i></span><span>${f3(v[0]/2)} ${im>=0?'+':'−'} ${Math.abs(im).toFixed(3)}<i>i</i></span><span>${f3((1-v[2])/2)}</span>`;
+    $('#pState').textContent=((1+v[2])/2).toFixed(3);
+    raf=requestAnimationFrame(f);}
+  ctrl.state={enter(){t0=performance.now();raf=requestAnimationFrame(f)},leave(){cancelAnimationFrame(raf)}};
+})();
+
+/* 4. evidence rotations */
+(()=>{
+  const c=$('#cvEv'),x=hd(c),B=Bloch(x,280,195,140);let raf;
+  const seq=[{nm:'Cost',n:[0,1,0],th:-1.0,col:'--cost'},{nm:'Risk',n:[1,0,0],th:-0.9,col:'--risk'},{nm:'Timing',n:[0,0,1],th:1.3,col:'--timing'},
+             {nm:'Cost',n:[0,1,0],th:0.8,col:'--cost'},{nm:'Risk',n:[1,0,0],th:1.0,col:'--risk'}];
+  let v0,i,t0,trail,trails;
+  function reset(){v0=[Math.sin(1.4),0,Math.cos(1.4)];i=0;trail=[v0];trails=[];t0=performance.now();}
+  function f(ts){const s=seq[i],D=1500,P=500,el=ts-t0;const col=css(s.col);
+    const k=ease(clamp(el/D,0,1)),v=rot(v0,s.n,s.th*k);
+    if(el<D)trail.push(v);
+    x.clearRect(0,0,x.W,x.H);B.draw({vec:v,hi:[{n:s.n,color:col,label:s.nm}],trails:[...trails,{pts:trail,color:col,w:2}]});
+    $('#evLbl').innerHTML=`<span style="color:${col};font-weight:bold">${s.nm}</span> evidence: rotation by <i>θ</i> = ${(s.th*k).toFixed(2)} about its axis &nbsp;·&nbsp; <i>P</i>(approve) = ${((1+v[2])/2).toFixed(3)}`;
+    if(el>D+P){trails.push({pts:trail,color:col,w:1.6});v0=v;i++;trail=[v0];t0=ts;if(i>=seq.length){reset();}}
+    raf=requestAnimationFrame(f);}
+  ctrl.evidence={enter(){reset();raf=requestAnimationFrame(f)},leave(){cancelAnimationFrame(raf)}};
+})();
+
+/* 5. order effects */
+(()=>{
+  const c=$('#cvOrd'),x=hd(c),B=Bloch(x,260,190,140);
+  const orders=[['Risk','Cost','Timing'],['Cost','Risk','Timing'],['Risk','Timing','Cost'],['Cost','Timing','Risk'],['Timing','Risk','Cost'],['Timing','Cost','Risk']];
+  const TH={Cost:-0.3,Risk:-0.4,Timing:0.6}, COL={Cost:'--cost',Risk:'--risk',Timing:'--timing'};
+  let mode='distinct',raf,job=null,ghost=[],res=[];
+  const axis=r=>mode==='same'?[0,1,0]:{Cost:[0,1,0],Risk:[1,0,0],Timing:[0,0,1]}[r];
+  const v0=[Math.sin(1.4),0,Math.cos(1.4)];
+  const wrap=$('#obars');
+  wrap.innerHTML=orders.map((o,i)=>`<div class="ob" id="ob${i}"><span class="lb">${o.join(' → ')}</span><span class="tr"><span class="fi"></span></span><span class="v">–</span></div>`).join('');
+  function finalP(o){let v=v0;o.forEach(r=>v=rot(v,axis(r),TH[r]));return (1+v[2])/2;}
+  function start(){cancelAnimationFrame(raf);ghost=[];res=[];
+    $$('.ob').forEach(e=>{e.classList.remove('cur');$('.fi',e).style.width='0';$('.v',e).textContent='–';});
+    job={i:0,step:0,t0:performance.now(),v:v0,trail:[v0],segs:[]};raf=requestAnimationFrame(f);}
+  function f(ts){
+    const o=orders[job.i],D=700,G=250,el=ts-job.t0;
+    $$('.ob').forEach((e,k)=>e.classList.toggle('cur',k===job.i));
+    let v=job.v,hi=[];
+    if(job.step<3){const r=o[job.step],k=ease(clamp(el/D,0,1));v=rot(job.v,axis(r),TH[r]*k);job.trail.push(v);
+      hi=[{n:axis(r),color:css(COL[r]),label:r}];
+      if(el>D+G){job.segs.push({pts:job.trail,color:css(COL[r]),w:2.2});job.v=v;job.trail=[v];job.step++;job.t0=ts;}}
+    else if(el>900){const p=(1+job.v[2])/2;res[job.i]=p;
+      const e=$('#ob'+job.i);$('.fi',e).style.width=clamp((p-0.5)/0.25,0.02,1)*100+'%';$('.v',e).textContent=p.toFixed(3);
+      ghost.push(...job.segs.map(s=>({pts:s.pts,color:'#c9c9c9',w:1.2})));
+      if(job.i<5){job={i:job.i+1,step:0,t0:ts,v:v0,trail:[v0],segs:[]};}else{job.done=true;}}
+    x.clearRect(0,0,x.W,x.H);B.draw({vec:v,hi,trails:[...ghost,...job.segs,{pts:job.trail,color:'#444',w:2}]});
+    $('#ordName').textContent=o.join(' → ');$('#ordP').textContent=((1+v[2])/2).toFixed(3);
+    if(!job.done)raf=requestAnimationFrame(f);
+    else $$('.ob').forEach(e=>e.classList.remove('cur'));
+  }
+  $('#oDistinct').onclick=()=>{mode='distinct';$('#oDistinct').classList.add('sel');$('#oSame').classList.remove('sel');start();};
+  $('#oSame').onclick=()=>{mode='same';$('#oSame').classList.add('sel');$('#oDistinct').classList.remove('sel');start();};
+  $('#oPlay').onclick=start;
+  ctrl.order={enter:start,leave(){cancelAnimationFrame(raf)}};
+})();
+
+/* 6. QQ table */
+(()=>{let tm=[];
+  ctrl.qq={enter(){const rows=$$('#qqT tr.row');rows.forEach(r=>r.classList.remove('on','hot'));
+    rows.forEach((r,i)=>tm.push(setTimeout(()=>r.classList.add('on'),250+i*350)));
+    tm.push(setTimeout(()=>$('#rj').classList.add('hot'),250+6*350+300));},
+    leave(){tm.forEach(clearTimeout);tm=[];}};
+})();
+
+/* 7. commit + drift */
+(()=>{
+  const c=$('#cvDr'),x=hd(c),B=Bloch(x,280,150,112),cp=$('#cvDrP'),y=hd(cp);let raf,t0,hist;
+  const lean=[Math.sin(1.0)*.9,0.15,Math.cos(1.0)*.9], gam=0.35, T=9;
+  function f(ts){const t=(ts-t0)/1000;let v,label;
+    if(t<1.4){v=lean;label='leaning';}
+    else if(t<1.9){const k=ease((t-1.4)/.5);v=[lean[0]*(1-k),lean[1]*(1-k),lean[2]+(1-lean[2])*k];label='commitment: Lüders projection';}
+    else{const s=Math.min(t-1.9,T),e=Math.exp(-gam*s);v=[0,0,-1+2*e];label=`drift toward default · Δt = ${s.toFixed(1)}`;
+      hist.push([s,(1+v[2])/2]);}
+    x.clearRect(0,0,x.W,x.H);B.draw({vec:v});
+    x.font='italic 15px '+SERIF;x.fillStyle=INK;x.textAlign='left';x.fillText(label,16,24);
+    x.textAlign='right';x.fillText('P(approve) = '+((1+v[2])/2).toFixed(3),x.W-14,24);
+    // plot
+    y.clearRect(0,0,y.W,y.H);const bx={x:70,y:12,w:460,h:96},fx=s=>bx.x+s/T*bx.w,fy=p=>bx.y+bx.h*(1-p);
+    axes(y,bx,{xl:'time since commitment',fx,fy,xt:[[0,'0'],[3,'3'],[6,'6'],[9,'9']],yt:[[0,'0'],[.5,'0.5'],[1,'1']]});
+    y.beginPath();hist.forEach(([s,p],i)=>i?y.lineTo(fx(s),fy(p)):y.moveTo(fx(s),fy(p)));y.strokeStyle=INK;y.lineWidth=1.8;y.stroke();
+    if(t>1.9+T+1.6){t0=ts;hist=[];}
+    raf=requestAnimationFrame(f);}
+  ctrl.drift={enter(){t0=performance.now();hist=[];raf=requestAnimationFrame(f)},leave(){cancelAnimationFrame(raf)}};
+})();
+
+/* 8. overlap law */
+(()=>{
+  const cs=$('#cvSp'),sx=hd(cs),cr=$('#cvRt'),rx=hd(cr);
+  const TMIN=0.1,TMAX=50, NT=90;
+  const lor=(w,c)=>1/((w-c)*(w-c)+1);
+  const F=(w,tau)=>{const a=w*tau/2;const s=Math.abs(a)<1e-9?1:Math.sin(a)/a;return tau/(2*Math.PI)*s*s;};
+  function ratio(tau,det){let S=0;const dw=0.01;for(let w=-250;w<=250;w+=dw)S+=lor(w,det)*F(w,tau);return S*dw/(1/(det*det+1));}
+  const taus=[...Array(NT)].map((_,i)=>TMIN*Math.pow(TMAX/TMIN,i/(NT-1)));
+  let curves=null;
+  function ensure(){if(curves)return;curves={det:taus.map(t=>ratio(t,3)),res:taus.map(t=>ratio(t,0)),flat:taus.map(()=>1)};}
+  let mode='det',u=0.4,auto=true,raf,tl;
+  const tauOf=u=>TMIN*Math.pow(TMAX/TMIN,u);
+  const interp=(arr,u)=>{const p=u*(NT-1),i=Math.min(NT-2,Math.floor(p)),f=p-i;return arr[i]*(1-f)+arr[i+1]*f;};
+  function draw(){
+    const tau=tauOf(u),det=mode==='det'?3:0;
+    // spectra
+    sx.clearRect(0,0,sx.W,sx.H);const b={x:50,y:14,w:510,h:140},W0=-10,W1=10,fx=w=>b.x+(w-W0)/(W1-W0)*b.w,fy=v=>b.y+b.h*(1-v);
+    axes(sx,b,{xl:'frequency ω',fx,fy,xt:[[-10,'−10'],[-5,'−5'],[0,'0'],[5,'5'],[10,'10']]});
+    const Fm=tau/(2*Math.PI),N=400;
+    const g=w=>mode==='flat'?0.55:lor(w,det), fn=w=>F(w,tau)/Fm;
+    sx.beginPath();for(let i=0;i<=N;i++){const w=W0+(W1-W0)*i/N;const v=g(w)*fn(w);i?sx.lineTo(fx(w),fy(v)):sx.moveTo(fx(w),fy(v));}
+    sx.lineTo(fx(W1),fy(0));sx.lineTo(fx(W0),fy(0));sx.closePath();sx.fillStyle='rgba(20,20,20,.16)';sx.fill();
+    sx.beginPath();for(let i=0;i<=N;i++){const w=W0+(W1-W0)*i/N;i?sx.lineTo(fx(w),fy(g(w))):sx.moveTo(fx(w),fy(g(w)));}sx.strokeStyle=INK;sx.lineWidth=1.8;sx.stroke();
+    sx.beginPath();for(let i=0;i<=N;i++){const w=W0+(W1-W0)*i/N;i?sx.lineTo(fx(w),fy(fn(w))):sx.moveTo(fx(w),fy(fn(w)));}sx.setLineDash([5,4]);sx.lineWidth=1.4;sx.stroke();sx.setLineDash([]);
+    sx.font='italic 14px '+SERIF;sx.textAlign='left';sx.fillStyle=INK;
+    txt(sx,mode==='flat'?'G (flat)':'G(ω+ω_{a})',fx(mode==='det'?3.6:1.1),fy(mode==='flat'?.6:.9));txt(sx,'F_{τ}(ω)',fx(-9.6),fy(.92));
+    // ratio curve
+    rx.clearRect(0,0,rx.W,rx.H);const c={x:50,y:10,w:510,h:170},lx=t=>c.x+Math.log(t/TMIN)/Math.log(TMAX/TMIN)*c.w,ly=v=>c.y+c.h*(1-v/2.4);
+    axes(rx,c,{xl:'review interval τ / τ_{c}  (log scale)',yl:'R / R_{GR}',fx:lx,fy:ly,xt:[[.1,'0.1'],[1,'1'],[10,'10'],[50,'50']],yt:[[0,'0'],[1,'1'],[2,'2']]});
+    rx.setLineDash([2,3]);rx.strokeStyle='#999';rx.lineWidth=.8;rx.beginPath();rx.moveTo(c.x,ly(1));rx.lineTo(c.x+c.w,ly(1));rx.stroke();rx.setLineDash([]);
+    ['res','det','flat'].forEach(k=>{rx.beginPath();curves[k].forEach((v,i)=>{const X=lx(taus[i]),Y=ly(v);i?rx.lineTo(X,Y):rx.moveTo(X,Y);});
+      rx.strokeStyle=k===mode?INK:'#c8c8c8';rx.lineWidth=k===mode?2:1.2;rx.stroke();});
+    rx.font='italic 13px '+SERIF;rx.fillStyle='#777';rx.textAlign='left';
+    rx.fillText('detuned',lx(0.55),ly(2.2));rx.fillText('resonant',lx(0.13),ly(0.22));rx.fillText('flat',lx(20),ly(1.12));
+    const r=interp(curves[mode],u);rx.beginPath();rx.arc(lx(tau),ly(r),5,0,7);rx.fillStyle=INK;rx.fill();
+    $('#tauV').textContent=tau<1?tau.toFixed(2):tau.toFixed(1);$('#rV').textContent=r.toFixed(2)+'×';
+    $('#rRegime').textContent=mode==='flat'?'no schedule effect (Prop. 5)':r<0.97?'decision Zeno: review slows drift':r>1.03?'decision anti-Zeno: review speeds drift':'≈ no review';
+    $('#tauR').value=Math.round(u*1000);
+  }
+  function loop(ts){if(auto){u=0.5+0.5*Math.sin((ts-tl)/2600-1.3);}draw();raf=requestAnimationFrame(loop);}
+  $('#tauR').addEventListener('input',e=>{auto=false;u=e.target.value/1000;});
+  $$('#stage [data-m]').forEach(b=>b.onclick=()=>{mode=b.dataset.m;$$('#stage [data-m]').forEach(z=>z.classList.toggle('sel',z===b));});
+  ctrl.overlap={enter(){ensure();auto=true;tl=performance.now();raf=requestAnimationFrame(loop)},leave(){cancelAnimationFrame(raf)}};
+})();
+
+/* 9. feedback */
+(()=>{
+  const cf=$('#cvFb'),fx_=hd(cf),ct=$('#cvTr'),tx=hd(ct);
+  const a=0.25,r=0.25,GMAX=6;
+  let eta=1,g=0,auto=true,raf,tl,qa=0,qb=0,buf=[],varAcc=[];
+  const V=(g,eta)=>(2+g*g*r/eta)/(2*(a+g)), gs=eta=>-a+Math.sqrt(a*a+2*eta/r);
+  const randn=()=>{let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);};
+  function draw(){
+    fx_.clearRect(0,0,fx_.W,fx_.H);const b={x:56,y:10,w:500,h:170},X=v=>b.x+v/GMAX*b.w,Y=v=>b.y+b.h*(1-v/4.3);
+    axes(fx_,b,{xl:'feedback gain g',yl:'Var(q_{a} − q_{b})',fx:X,fy:Y,xt:[[0,'0'],[2,'2'],[4,'4'],[6,'6']],yt:[[0,'0'],[2,'2'],[4,'4']]});
+    [1,.5,.2].forEach(e=>{fx_.beginPath();for(let i=0;i<=200;i++){const gg=GMAX*i/200;i?fx_.lineTo(X(gg),Y(V(gg,e))):fx_.moveTo(X(gg),Y(V(gg,e)));}
+      fx_.strokeStyle=e===eta?INK:'#c4c4c4';fx_.lineWidth=e===eta?2:1.2;fx_.stroke();
+      const go=gs(e);fx_.beginPath();fx_.arc(X(go),Y(V(go,e)),3.2,0,7);fx_.fillStyle=e===eta?INK:'#b0b0b0';fx_.fill();
+      fx_.font='italic 13px '+SERIF;fx_.textAlign='left';fx_.fillText('η = '+e,X(5.1),Y(V(5.1,e))-6);});
+    fx_.beginPath();fx_.arc(X(g),Y(V(g,eta)),6,0,7);fx_.strokeStyle=INK;fx_.lineWidth=1.6;fx_.stroke();
+    // traces
+    tx.clearRect(0,0,tx.W,tx.H);const c={x:56,y:8,w:500,h:140},TX=i=>c.x+i/300*c.w,TY=v=>c.y+c.h/2-v*c.h/9;
+    axes(tx,c,{xl:'time',yl:'commitment q',fx:TX,fy:TY,yt:[[-4,'−4'],[0,'0'],[4,'4']]});
+    [['a',css('--risk')],['b',css('--cost')]].forEach(([k,col],j)=>{tx.beginPath();buf.forEach((p,i)=>{const Yv=TY(clamp(p[j],-4.4,4.4));i?tx.lineTo(TX(i),Yv):tx.moveTo(TX(i),Yv);});tx.strokeStyle=col;tx.lineWidth=1.4;tx.stroke();});
+    const emp=varAcc.length?varAcc.reduce((s,v)=>s+v*v,0)/varAcc.length:0;
+    tx.font='14px '+SERIF;tx.fillStyle=INK;tx.textAlign='right';
+    tx.fillText(`g = ${g.toFixed(2)}${Math.abs(g-gs(eta))<0.01?' (optimal)':g===0?' (no feedback)':''}   ·   stationary Var = ${V(g,eta).toFixed(2)}`,c.x+c.w,c.y+12);
+    tx.textAlign='left';tx.fillStyle=css('--risk');tx.fillText('role a',c.x+8,c.y+12);tx.fillStyle=css('--cost');tx.fillText('role b',c.x+60,c.y+12);
+    $('#gV').textContent=g.toFixed(2);$('#gR').value=Math.round(g/GMAX*600);
+  }
+  function step(){const dt=0.02,k=r/eta;for(let s=0;s<4;s++){const D=qa-qb,obs=D*dt+Math.sqrt(k*dt)*randn();
+      const na=Math.sqrt(dt)*randn(),nb=Math.sqrt(dt)*randn();
+      qa+=-a*qa*dt+na-(g/2)*obs; qb+=-a*qb*dt+nb+(g/2)*obs;}
+    buf.push([qa,qb]);if(buf.length>300)buf.shift();varAcc.push(qa-qb);if(varAcc.length>1500)varAcc.shift();}
+  let last=0;
+  function loop(ts){const n=last?Math.min(8,Math.max(1,Math.round((ts-last)/16.7))):1;last=ts;
+    if(auto){const ph=((ts-tl)/1000)%16;const ng=ph<5?0:ph<11?gs(eta):Math.min(GMAX,gs(eta)*2.2);if(Math.abs(ng-g)>1e-6){g=ng;varAcc=[];}}
+    for(let k=0;k<n;k++)step();draw();raf=requestAnimationFrame(loop);}
+  $('#gR').addEventListener('input',e=>{auto=false;g=e.target.value/600*GMAX;varAcc=[];});
+  $$('#stage [data-eta]').forEach(bn=>bn.onclick=()=>{eta=+bn.dataset.eta;varAcc=[];$$('#stage [data-eta]').forEach(z=>z.classList.toggle('sel',z===bn));});
+  ctrl.feedback={enter(){auto=true;tl=performance.now();qa=qb=0;buf=[];varAcc=[];raf=requestAnimationFrame(loop)},leave(){cancelAnimationFrame(raf)}};
+})();
+
+/* 10. pipeline */
+(()=>{
+  const st=[
+    ['Evidence item, session 7','Engineering: “Inverter supplier slipped two weeks.”'],
+    ['Extract  ·  small model','{ role: "engineering", direction: −1, strength: 0.6 }'],
+    ['Update  ·  plain code','ρ_eng ← U ρ_eng U†,  axis n̂_eng,  θ = −0.6 θ₀'],
+    ['Drift & review  ·  plain code','ρ ← E_Δt(ρ),  Δt = 3 days since last update;  timestamp refreshed'],
+    ['Coordinate  ·  plain code','u_r = g · y_r  applied across finance, engineering, operations'],
+    ['Answer  ·  large model','“P(approve) = 0.58, leaning approve; engineering opposed, finance in favour.”  →  written answer'],
+  ];
+  let tm,i=0;
+  function show(){const s=$$('#pipe .stg');s.forEach((e,k)=>e.classList.toggle('on',k===i-1));
+    const ch=$('#chip');ch.style.opacity=0;setTimeout(()=>{ch.innerHTML=`<span style="font-family:var(--serif);font-style:italic">${st[i][0]}</span><br>${st[i][1]}`;ch.style.opacity=1;},220);
+    i=(i+1)%st.length;}
+  ctrl.pipeline={enter(){i=0;show();tm=setInterval(show,2300)},leave(){clearInterval(tm)}};
+})();
+
+/* 11. results */
+(()=>{
+  const schemes=[['state','#141414'],['orchestrated','#6b6b6b'],['small-transcript','#bdbdbd']];
+  const save={a:[87,63,90],b:[93,77,87],c:[67,52,87]};
+  const accS=[['large-transcript','#141414'],['small-transcript','#bdbdbd'],['state','#5a5a5a'],['orchestrated','#8f8f8f']];
+  const acc={a:[.9,.8,.6,.6],b:[1,.4,.6,.6],c:[1,.4,.4,.4]};
+  const runs=[['a','(a) 10 s · 10 p'],['b','(b) 30 s · 5 p'],['c','(c) 30 s · 5 p, every 5th']];
+  $('#chSave').innerHTML=runs.map(([k,l])=>`<div class="grp"><div class="cols">${save[k].map((v,j)=>`<div class="col" data-h="${v}" style="background:${schemes[j][1]}"><i>${v}%</i></div>`).join('')}</div><div class="gt">${l}</div></div>`).join('');
+  $('#chAcc').innerHTML=runs.map(([k,l])=>`<div class="grp"><div class="cols">${acc[k].map((v,j)=>`<div class="col" data-h="${v*100}" style="background:${accS[j][1]}"><i>${v.toFixed(1)}</i></div>`).join('')}</div><div class="gt">${l}</div></div>`).join('');
+  const L=[['large-transcript','#141414'],['state','#5a5a5a'],['orchestrated','#8f8f8f'],['small-transcript','#bdbdbd']];
+  $('#resLeg').innerHTML='Left: '+schemes.map(([n,c],i)=>`<span style="background:${c};${i?'':'margin-left:6px'}"></span>${n}`).join('')+' &nbsp;&nbsp; Right: '+accS.map(([n,c])=>`<span style="background:${c}"></span>${n}`).join('');
+  let tm;
+  ctrl.results={enter(){$$('#stage .col').forEach(c=>c.style.height='0');tm=setTimeout(()=>$$('#stage .col').forEach((c,i)=>setTimeout(()=>c.style.height=c.dataset.h+'%',i*45)),200);},leave(){clearTimeout(tm)}};
+})();
+
+/* 12. counters */
+(()=>{let raf;
+  ctrl.noise={enter(){const els=$$('[data-count]');const t0=performance.now();
+    const f=ts=>{const k=ease(clamp((ts-t0)/1400,0,1));els.forEach(e=>e.textContent=Math.round(k*+e.dataset.count)+'%');if(k<1)raf=requestAnimationFrame(f);};raf=requestAnimationFrame(f);},
+    leave(){cancelAnimationFrame(raf)}};
+})();
+
+/* =============== DECK ENGINE =============== */
+const slides=$$('.slide');let cur=0;
+function fit(){const s=Math.min(innerWidth/1280,innerHeight/720)*0.97;const st=$('#stage');
+  st.style.transform=`scale(${s}) translate(-50%,-50%)`;st.style.transformOrigin='0 0';
+  st.style.left='50%';st.style.top='50%';st.style.transform=`translate(-50%,-50%) scale(${s})`;st.style.transformOrigin='center center';}
+addEventListener('resize',fit);fit();
+function go(n,fromBack){n=clamp(n,0,slides.length-1);const old=slides[cur];
+  if(old&&ctrl[old.dataset.id])ctrl[old.dataset.id].leave();
+  old.classList.remove('active');cur=n;const s=slides[cur];s.classList.add('active');
+  $$('.f',s).forEach(e=>e.classList.toggle('on',!!fromBack));
+  if(ctrl[s.dataset.id])ctrl[s.dataset.id].enter();
+  $('#bar').style.width=((cur+1)/slides.length*100)+'%';$('#cnt').textContent=`${cur+1} / ${slides.length}`;
+  history.replaceState(null,'','#'+(cur+1));}
+function next(){const hid=$$('.f:not(.on)',slides[cur]);if(hid.length){hid[0].classList.add('on');return;}go(cur+1);}
+function prev(){const on=$$('.f.on',slides[cur]);if(on.length){on[on.length-1].classList.remove('on');return;}if(cur>0)go(cur-1,true);}
+addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;
+  if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();next();}
+  else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev();}
+  else if(e.key==='Home')go(0);else if(e.key==='End')go(slides.length-1,true);
+  else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}});
+$('#next').onclick=e=>{e.stopPropagation();next()};$('#prev').onclick=e=>{e.stopPropagation();prev()};
+$('#stage').addEventListener('click',e=>{if(e.target.closest('button,input,a,canvas'))return;next();});
+let tx0=null;addEventListener('touchstart',e=>tx0=e.touches[0].clientX);addEventListener('touchend',e=>{if(tx0===null)return;const d=e.changedTouches[0].clientX-tx0;if(Math.abs(d)>50)(d<0?next:prev)();tx0=null;});
+addEventListener('DOMContentLoaded',()=>{
+  if(window.renderMathInElement)renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
+});
+addEventListener('hashchange',()=>{const n=parseInt(location.hash.slice(1))-1;if(!isNaN(n)&&n!==cur)go(n);});
+const start=parseInt(location.hash.slice(1))-1;slides[0].classList.add('active');
+go(isNaN(start)?0:start);
+</script>
+</body>
+</html>
